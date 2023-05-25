@@ -1,0 +1,229 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2020  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+# Date created = 20:45:23  May 25, 2023
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		Proje_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY project
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:45:23  MAY 25, 2023"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name BOARD "DE1-SoC Board"
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim (VHDL)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_timing
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
+set_global_assignment -name VHDL_FILE src/ip/ram/frameb.vhd
+set_global_assignment -name QIP_FILE src/ip/ram/frameb.qip
+set_global_assignment -name SOURCE_FILE src/ip/ram/frameb.cmp
+set_global_assignment -name VHDL_FILE src/ip/clock/clock_pll.vhd
+set_global_assignment -name QIP_FILE src/ip/clock/clock_pll.qip
+set_global_assignment -name SOURCE_FILE src/ip/clock/clock_pll.cmp
+set_global_assignment -name VHDL_FILE src/vga.vhd
+set_global_assignment -name VHDL_FILE src/project.vhd
+set_global_assignment -name VHDL_FILE src/ov7670_registers.vhd
+set_global_assignment -name VHDL_FILE src/ov7670_controller.vhd
+set_global_assignment -name VHDL_FILE src/ov7670_capture.vhd
+set_global_assignment -name VHDL_FILE src/motor.vhd
+set_global_assignment -name VHDL_FILE src/i2c_sender.vhd
+set_global_assignment -name VHDL_FILE src/hcsr04.vhd
+set_global_assignment -name VHDL_FILE src/debounce.vhd
+set_global_assignment -name VHDL_FILE src/address_Generator.vhd
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_A11 -to vga_clock
+set_location_assignment PIN_D11 -to v_sync
+set_location_assignment PIN_A13 -to red[0]
+set_location_assignment PIN_C13 -to red[1]
+set_location_assignment PIN_E13 -to red[2]
+set_location_assignment PIN_B12 -to red[3]
+set_location_assignment PIN_C12 -to red[4]
+set_location_assignment PIN_D12 -to red[5]
+set_location_assignment PIN_E12 -to red[6]
+set_location_assignment PIN_F13 -to red[7]
+set_location_assignment PIN_J9 -to green[0]
+set_location_assignment PIN_J10 -to green[1]
+set_location_assignment PIN_H12 -to green[2]
+set_location_assignment PIN_G10 -to green[3]
+set_location_assignment PIN_G11 -to green[4]
+set_location_assignment PIN_G12 -to green[5]
+set_location_assignment PIN_F11 -to green[6]
+set_location_assignment PIN_E11 -to green[7]
+set_location_assignment PIN_B13 -to blue[0]
+set_location_assignment PIN_G13 -to blue[1]
+set_location_assignment PIN_H13 -to blue[2]
+set_location_assignment PIN_F14 -to blue[3]
+set_location_assignment PIN_H14 -to blue[4]
+set_location_assignment PIN_F15 -to blue[5]
+set_location_assignment PIN_G15 -to blue[6]
+set_location_assignment PIN_J14 -to blue[7]
+set_location_assignment PIN_B11 -to h_sync
+set_location_assignment PIN_F10 -to n_blank
+set_location_assignment PIN_C10 -to n_sync
+set_location_assignment PIN_AF14 -to clk
+set_location_assignment PIN_AD21 -to ov7670_data[0]
+set_location_assignment PIN_AF23 -to ov7670_data[2]
+set_location_assignment PIN_AG22 -to ov7670_data[4]
+set_location_assignment PIN_AJ22 -to ov7670_data[6]
+set_location_assignment PIN_AK22 -to ov7670_data[7]
+set_location_assignment PIN_AH22 -to ov7670_data[5]
+set_location_assignment PIN_AF24 -to ov7670_data[3]
+set_location_assignment PIN_AE22 -to ov7670_data[1]
+set_location_assignment PIN_AA20 -to ov7670_reset
+set_location_assignment PIN_AC22 -to ov7670_pwdn
+set_location_assignment PIN_AK23 -to ov7670_pclk
+set_location_assignment PIN_AG23 -to ov7670_href
+set_location_assignment PIN_AJ25 -to ov7670_sioc
+set_location_assignment PIN_AJ24 -to ov7670_siod
+set_location_assignment PIN_AK24 -to ov7670_vsync
+set_location_assignment PIN_AH23 -to ov7670_xclk
+set_location_assignment PIN_AH28 -to o_seg_cms[6]
+set_location_assignment PIN_AG28 -to o_seg_cms[5]
+set_location_assignment PIN_AF28 -to o_seg_cms[4]
+set_location_assignment PIN_AG27 -to o_seg_cms[3]
+set_location_assignment PIN_AE28 -to o_seg_cms[2]
+set_location_assignment PIN_AE27 -to o_seg_cms[1]
+set_location_assignment PIN_AE26 -to o_seg_cms[0]
+set_location_assignment PIN_AD27 -to o_seg_dms[6]
+set_location_assignment PIN_AF30 -to o_seg_dms[5]
+set_location_assignment PIN_AF29 -to o_seg_dms[4]
+set_location_assignment PIN_AG30 -to o_seg_dms[3]
+set_location_assignment PIN_AH30 -to o_seg_dms[2]
+set_location_assignment PIN_AH29 -to o_seg_dms[1]
+set_location_assignment PIN_AJ29 -to o_seg_dms[0]
+set_location_assignment PIN_AC30 -to o_seg_ms[6]
+set_location_assignment PIN_AC29 -to o_seg_ms[5]
+set_location_assignment PIN_AD30 -to o_seg_ms[4]
+set_location_assignment PIN_AC28 -to o_seg_ms[3]
+set_location_assignment PIN_AD29 -to o_seg_ms[2]
+set_location_assignment PIN_AE29 -to o_seg_ms[1]
+set_location_assignment PIN_AB23 -to o_seg_ms[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_data[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_data[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_data[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_data[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_data[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_data[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_data[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_data[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_href
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_pclk
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_pwdn
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_reset
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_sioc
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_siod
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_vsync
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ov7670_xclk
+set_instance_assignment -name SLEW_RATE 0 -to ov7670_siod
+set_instance_assignment -name SLEW_RATE 0 -to ov7670_sioc
+set_instance_assignment -name SLEW_RATE 0 -to ov7670_pwdn
+set_instance_assignment -name SLEW_RATE 0 -to ov7670_reset
+set_instance_assignment -name SLEW_RATE 0 -to ov7670_xclk
+set_location_assignment PIN_AG20 -to coils[3]
+set_location_assignment PIN_AF18 -to coils[2]
+set_location_assignment PIN_AG21 -to coils[1]
+set_location_assignment PIN_AF19 -to coils[0]
+set_location_assignment PIN_AG18 -to sonar_echo
+set_location_assignment PIN_AJ21 -to sonar_trig
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to red[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to red[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to red[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to red[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to red[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to red[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to red[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to red[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sonar_echo
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sonar_trig
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to v_sync
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vga_clock
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to blue[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to blue[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to blue[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to blue[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to coils[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to coils[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to coils[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to coils[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to green[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to green[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to green[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to green[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to green[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to green[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to green[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to green[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to h_sync
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to n_blank
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to n_sync
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_cms[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_cms[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_cms[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_cms[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_cms[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_cms[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_cms[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_dms[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_dms[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_dms[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_dms[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_dms[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_dms[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_dms[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_ms[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_ms[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_ms[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_ms[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_ms[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_ms[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to o_seg_ms[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to blue[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to blue[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to blue[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to blue[4]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

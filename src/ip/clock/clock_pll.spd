@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="clock_pll_sim/clock_pll.vho" type="VHDL" />
+ <topLevel name="clock_pll" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

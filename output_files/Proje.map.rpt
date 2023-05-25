@@ -1,0 +1,1674 @@
+Analysis & Synthesis report for Proje
+Fri May 26 00:57:16 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Analysis & Synthesis IP Cores Summary
+ 11. State Machine - |project|motor:motor_1|m_states
+ 12. State Machine - |project|hcsr04:hcsr04|state
+ 13. User-Specified and Inferred Latches
+ 14. Registers Removed During Synthesis
+ 15. Removed Registers Triggering Further Register Optimizations
+ 16. General Register Statistics
+ 17. Inverted Register Statistics
+ 18. Registers Packed Into Inferred Megafunctions
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Source assignments for frameb:frameb_1|altsyncram:altsyncram_component|altsyncram_erv3:auto_generated
+ 21. Source assignments for ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|altsyncram:Mux0_rtl_0|altsyncram_dl51:auto_generated
+ 22. Parameter Settings for User Entity Instance: clock_pll:clock_pll_1|clock_pll_0002:clock_pll_inst|altera_pll:altera_pll_i
+ 23. Parameter Settings for User Entity Instance: frameb:frameb_1|altsyncram:altsyncram_component
+ 24. Parameter Settings for User Entity Instance: motor:motor_1
+ 25. Parameter Settings for Inferred Entity Instance: ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|altsyncram:Mux0_rtl_0
+ 26. Parameter Settings for Inferred Entity Instance: VGA:Inst_VGA|lpm_divide:Div0
+ 27. Parameter Settings for Inferred Entity Instance: VGA:Inst_VGA|lpm_divide:Div1
+ 28. altsyncram Parameter Settings by Entity Instance
+ 29. Port Connectivity Checks: "VGA:Inst_VGA"
+ 30. Port Connectivity Checks: "Address_Generator:Inst_Address_Generator"
+ 31. Port Connectivity Checks: "ov7670_capture:Inst_ov7670_capture"
+ 32. Port Connectivity Checks: "ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender"
+ 33. Port Connectivity Checks: "ov7670_controller:Inst_ov7670_controller"
+ 34. Port Connectivity Checks: "debounce:Inst_debounce"
+ 35. Port Connectivity Checks: "motor:motor_1"
+ 36. Port Connectivity Checks: "hcsr04:hcsr04"
+ 37. Port Connectivity Checks: "clock_pll:clock_pll_1"
+ 38. Post-Synthesis Netlist Statistics for Top Partition
+ 39. Elapsed Time Per Partition
+ 40. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri May 26 00:57:16 2023       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; Proje                                       ;
+; Top-level Entity Name           ; project                                     ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 360                                         ;
+; Total pins                      ; 73                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 1,576,960                                   ;
+; Total DSP Blocks                ; 6                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; project            ; Proje              ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                              ;
++-----------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+-----------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library   ;
++-----------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+-----------+
+; src/ip/ram/frameb.vhd                   ; yes             ; User Wizard-Generated File   ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/ram/frameb.vhd                    ;           ;
+; src/ip/clock/clock_pll.vhd              ; yes             ; User Wizard-Generated File   ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/clock/clock_pll.vhd               ;           ;
+; src/ip/clock/clock_pll/clock_pll_0002.v ; yes             ; User Verilog HDL File        ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/clock/clock_pll/clock_pll_0002.v  ; clock_pll ;
+; src/vga.vhd                             ; yes             ; User VHDL File               ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd                              ;           ;
+; src/project.vhd                         ; yes             ; User VHDL File               ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd                          ;           ;
+; src/ov7670_registers.vhd                ; yes             ; User VHDL File               ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/ov7670_registers.vhd                 ;           ;
+; src/ov7670_controller.vhd               ; yes             ; User VHDL File               ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/ov7670_controller.vhd                ;           ;
+; src/ov7670_capture.vhd                  ; yes             ; User VHDL File               ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/ov7670_capture.vhd                   ;           ;
+; src/motor.vhd                           ; yes             ; User VHDL File               ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/motor.vhd                            ;           ;
+; src/i2c_sender.vhd                      ; yes             ; User VHDL File               ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/i2c_sender.vhd                       ;           ;
+; src/hcsr04.vhd                          ; yes             ; User VHDL File               ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd                           ;           ;
+; src/debounce.vhd                        ; yes             ; User VHDL File               ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/debounce.vhd                         ;           ;
+; src/address_Generator.vhd               ; yes             ; User VHDL File               ; C:/Users/mbatu/Desktop/ELE432_RADAR/src/address_Generator.vhd                ;           ;
+; altera_pll.v                            ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v          ;           ;
+; altsyncram.tdf                          ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf        ;           ;
+; stratix_ram_block.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;           ;
+; lpm_mux.inc                             ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc           ;           ;
+; lpm_decode.inc                          ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc        ;           ;
+; aglobal201.inc                          ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc        ;           ;
+; a_rdenreg.inc                           ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;           ;
+; altrom.inc                              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc            ;           ;
+; altram.inc                              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc            ;           ;
+; altdpram.inc                            ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc          ;           ;
+; db/altsyncram_erv3.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/mbatu/Desktop/ELE432_RADAR/db/altsyncram_erv3.tdf                   ;           ;
+; db/decode_tma.tdf                       ; yes             ; Auto-Generated Megafunction  ; C:/Users/mbatu/Desktop/ELE432_RADAR/db/decode_tma.tdf                        ;           ;
+; db/decode_m2a.tdf                       ; yes             ; Auto-Generated Megafunction  ; C:/Users/mbatu/Desktop/ELE432_RADAR/db/decode_m2a.tdf                        ;           ;
+; db/mux_oib.tdf                          ; yes             ; Auto-Generated Megafunction  ; C:/Users/mbatu/Desktop/ELE432_RADAR/db/mux_oib.tdf                           ;           ;
+; db/altsyncram_dl51.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/mbatu/Desktop/ELE432_RADAR/db/altsyncram_dl51.tdf                   ;           ;
+; lpm_divide.tdf                          ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf        ;           ;
+; abs_divider.inc                         ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc       ;           ;
+; sign_div_unsign.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;           ;
+; db/lpm_divide_epo.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/mbatu/Desktop/ELE432_RADAR/db/lpm_divide_epo.tdf                    ;           ;
+; db/abs_divider_nbg.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/mbatu/Desktop/ELE432_RADAR/db/abs_divider_nbg.tdf                   ;           ;
+; db/alt_u_div_uve.tdf                    ; yes             ; Auto-Generated Megafunction  ; C:/Users/mbatu/Desktop/ELE432_RADAR/db/alt_u_div_uve.tdf                     ;           ;
+; db/lpm_abs_nn9.tdf                      ; yes             ; Auto-Generated Megafunction  ; C:/Users/mbatu/Desktop/ELE432_RADAR/db/lpm_abs_nn9.tdf                       ;           ;
+; db/lpm_abs_4p9.tdf                      ; yes             ; Auto-Generated Megafunction  ; C:/Users/mbatu/Desktop/ELE432_RADAR/db/lpm_abs_4p9.tdf                       ;           ;
++-----------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                                              ;
++---------------------------------------------+--------------------------------------------------------------------------------------------+
+; Resource                                    ; Usage                                                                                      ;
++---------------------------------------------+--------------------------------------------------------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 1159                                                                                       ;
+;                                             ;                                                                                            ;
+; Combinational ALUT usage for logic          ; 2100                                                                                       ;
+;     -- 7 input functions                    ; 5                                                                                          ;
+;     -- 6 input functions                    ; 208                                                                                        ;
+;     -- 5 input functions                    ; 96                                                                                         ;
+;     -- 4 input functions                    ; 430                                                                                        ;
+;     -- <=3 input functions                  ; 1361                                                                                       ;
+;                                             ;                                                                                            ;
+; Dedicated logic registers                   ; 360                                                                                        ;
+;                                             ;                                                                                            ;
+; I/O pins                                    ; 73                                                                                         ;
+; Total MLAB memory bits                      ; 0                                                                                          ;
+; Total block memory bits                     ; 1576960                                                                                    ;
+;                                             ;                                                                                            ;
+; Total DSP Blocks                            ; 6                                                                                          ;
+;                                             ;                                                                                            ;
+; Total PLLs                                  ; 2                                                                                          ;
+;     -- PLLs                                 ; 2                                                                                          ;
+;                                             ;                                                                                            ;
+; Maximum fan-out node                        ; clock_pll:clock_pll_1|clock_pll_0002:clock_pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
+; Maximum fan-out                             ; 276                                                                                        ;
+; Total fan-out                               ; 14128                                                                                      ;
+; Average fan-out                             ; 5.00                                                                                       ;
++---------------------------------------------+--------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                        ;
++------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                           ; Entity Name       ; Library Name ;
++------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+; |project                                       ; 2100 (0)            ; 360 (0)                   ; 1576960           ; 6          ; 73   ; 0            ; |project                                                                                                                                      ; project           ; work         ;
+;    |Address_Generator:Inst_Address_Generator|  ; 22 (22)             ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |project|Address_Generator:Inst_Address_Generator                                                                                             ; Address_Generator ; work         ;
+;    |VGA:Inst_VGA|                              ; 1643 (445)          ; 58 (58)                   ; 0                 ; 5          ; 0    ; 0            ; |project|VGA:Inst_VGA                                                                                                                         ; VGA               ; work         ;
+;       |lpm_divide:Div0|                        ; 597 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|VGA:Inst_VGA|lpm_divide:Div0                                                                                                         ; lpm_divide        ; work         ;
+;          |lpm_divide_epo:auto_generated|       ; 597 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|VGA:Inst_VGA|lpm_divide:Div0|lpm_divide_epo:auto_generated                                                                           ; lpm_divide_epo    ; work         ;
+;             |abs_divider_nbg:divider|          ; 597 (13)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|VGA:Inst_VGA|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider                                                   ; abs_divider_nbg   ; work         ;
+;                |alt_u_div_uve:divider|         ; 552 (552)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|VGA:Inst_VGA|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|alt_u_div_uve:divider                             ; alt_u_div_uve     ; work         ;
+;                |lpm_abs_4p9:my_abs_num|        ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|VGA:Inst_VGA|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|lpm_abs_4p9:my_abs_num                            ; lpm_abs_4p9       ; work         ;
+;       |lpm_divide:Div1|                        ; 601 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|VGA:Inst_VGA|lpm_divide:Div1                                                                                                         ; lpm_divide        ; work         ;
+;          |lpm_divide_epo:auto_generated|       ; 601 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|VGA:Inst_VGA|lpm_divide:Div1|lpm_divide_epo:auto_generated                                                                           ; lpm_divide_epo    ; work         ;
+;             |abs_divider_nbg:divider|          ; 601 (17)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|VGA:Inst_VGA|lpm_divide:Div1|lpm_divide_epo:auto_generated|abs_divider_nbg:divider                                                   ; abs_divider_nbg   ; work         ;
+;                |alt_u_div_uve:divider|         ; 552 (552)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|VGA:Inst_VGA|lpm_divide:Div1|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|alt_u_div_uve:divider                             ; alt_u_div_uve     ; work         ;
+;                |lpm_abs_4p9:my_abs_num|        ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|VGA:Inst_VGA|lpm_divide:Div1|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|lpm_abs_4p9:my_abs_num                            ; lpm_abs_4p9       ; work         ;
+;    |clock_pll:clock_pll_1|                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|clock_pll:clock_pll_1                                                                                                                ; clock_pll         ; work         ;
+;       |clock_pll_0002:clock_pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|clock_pll:clock_pll_1|clock_pll_0002:clock_pll_inst                                                                                  ; clock_pll_0002    ; clock_pll    ;
+;          |altera_pll:altera_pll_i|             ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|clock_pll:clock_pll_1|clock_pll_0002:clock_pll_inst|altera_pll:altera_pll_i                                                          ; altera_pll        ; work         ;
+;    |frameb:frameb_1|                           ; 32 (0)              ; 4 (0)                     ; 1572864           ; 0          ; 0    ; 0            ; |project|frameb:frameb_1                                                                                                                      ; frameb            ; work         ;
+;       |altsyncram:altsyncram_component|        ; 32 (0)              ; 4 (0)                     ; 1572864           ; 0          ; 0    ; 0            ; |project|frameb:frameb_1|altsyncram:altsyncram_component                                                                                      ; altsyncram        ; work         ;
+;          |altsyncram_erv3:auto_generated|      ; 32 (0)              ; 4 (4)                     ; 1572864           ; 0          ; 0    ; 0            ; |project|frameb:frameb_1|altsyncram:altsyncram_component|altsyncram_erv3:auto_generated                                                       ; altsyncram_erv3   ; work         ;
+;             |decode_m2a:rden_decode_b|         ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|frameb:frameb_1|altsyncram:altsyncram_component|altsyncram_erv3:auto_generated|decode_m2a:rden_decode_b                              ; decode_m2a        ; work         ;
+;             |decode_tma:decode2|               ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |project|frameb:frameb_1|altsyncram:altsyncram_component|altsyncram_erv3:auto_generated|decode_tma:decode2                                    ; decode_tma        ; work         ;
+;    |hcsr04:hcsr04|                             ; 148 (148)           ; 65 (65)                   ; 0                 ; 1          ; 0    ; 0            ; |project|hcsr04:hcsr04                                                                                                                        ; hcsr04            ; work         ;
+;    |motor:motor_1|                             ; 101 (101)           ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |project|motor:motor_1                                                                                                                        ; motor             ; work         ;
+;    |ov7670_capture:Inst_ov7670_capture|        ; 27 (27)             ; 53 (53)                   ; 0                 ; 0          ; 0    ; 0            ; |project|ov7670_capture:Inst_ov7670_capture                                                                                                   ; ov7670_capture    ; work         ;
+;    |ov7670_controller:Inst_ov7670_controller|  ; 127 (1)             ; 81 (1)                    ; 4096              ; 0          ; 0    ; 0            ; |project|ov7670_controller:Inst_ov7670_controller                                                                                             ; ov7670_controller ; work         ;
+;       |i2c_sender:Inst_i2c_sender|             ; 115 (115)           ; 72 (72)                   ; 0                 ; 0          ; 0    ; 0            ; |project|ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender                                                                  ; i2c_sender        ; work         ;
+;       |ov7670_registers:Inst_ov7670_registers| ; 11 (11)             ; 8 (8)                     ; 4096              ; 0          ; 0    ; 0            ; |project|ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers                                                      ; ov7670_registers  ; work         ;
+;          |altsyncram:Mux0_rtl_0|               ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |project|ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|altsyncram:Mux0_rtl_0                                ; altsyncram        ; work         ;
+;             |altsyncram_dl51:auto_generated|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |project|ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|altsyncram:Mux0_rtl_0|altsyncram_dl51:auto_generated ; altsyncram_dl51   ; work         ;
++------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                         ;
++-------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------------------------+
+; Name                                                                                                                                            ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size    ; MIF                    ;
++-------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------------------------+
+; frameb:frameb_1|altsyncram:altsyncram_component|altsyncram_erv3:auto_generated|ALTSYNCRAM                                                       ; AUTO ; Simple Dual Port ; 131072       ; 12           ; 131072       ; 12           ; 1572864 ; None                   ;
+; ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|altsyncram:Mux0_rtl_0|altsyncram_dl51:auto_generated|ALTSYNCRAM ; AUTO ; ROM              ; 256          ; 16           ; --           ; --           ; 4096    ; Proje.project0.rtl.mif ;
++-------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------------------------+
+
+
++-------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary    ;
++-----------------------------------+-------------+
+; Statistic                         ; Number Used ;
++-----------------------------------+-------------+
+; Two Independent 18x18             ; 2           ;
+; Independent 18x18 plus 36         ; 1           ;
+; Sum of two 18x18                  ; 3           ;
+; Total number of DSP blocks        ; 6           ;
+;                                   ;             ;
+; Fixed Point Signed Multiplier     ; 2           ;
+; Fixed Point Unsigned Multiplier   ; 5           ;
+; Fixed Point Mixed Sign Multiplier ; 2           ;
++-----------------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                            ;
++--------+--------------+---------+--------------+--------------+--------------------------+-----------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance          ; IP Include File       ;
++--------+--------------+---------+--------------+--------------+--------------------------+-----------------------+
+; Altera ; RAM: 2-PORT  ; 20.1    ; N/A          ; N/A          ; |project|frameb:frameb_1 ; src/ip/ram/frameb.vhd ;
++--------+--------------+---------+--------------+--------------+--------------------------+-----------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |project|motor:motor_1|m_states                                                                                                                                                                                             ;
++--------------------------+----------------------+--------------------------+--------------------------+-------------+-------------+-------------+-------------+---------------------+-------------+-------------+-------------+-------------+
+; Name                     ; m_states.ONE_S_WAIT2 ; m_states.STEP_CHECK_SCND ; m_states.STEP_CHECK_FRST ; m_states.s8 ; m_states.s7 ; m_states.s6 ; m_states.s5 ; m_states.ONE_S_WAIT ; m_states.s4 ; m_states.s3 ; m_states.s2 ; m_states.s1 ;
++--------------------------+----------------------+--------------------------+--------------------------+-------------+-------------+-------------+-------------+---------------------+-------------+-------------+-------------+-------------+
+; m_states.s1              ; 0                    ; 0                        ; 0                        ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 0           ;
+; m_states.s2              ; 0                    ; 0                        ; 0                        ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0           ; 0           ; 1           ; 1           ;
+; m_states.s3              ; 0                    ; 0                        ; 0                        ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0           ; 1           ; 0           ; 1           ;
+; m_states.s4              ; 0                    ; 0                        ; 0                        ; 0           ; 0           ; 0           ; 0           ; 0                   ; 1           ; 0           ; 0           ; 1           ;
+; m_states.ONE_S_WAIT      ; 0                    ; 0                        ; 0                        ; 0           ; 0           ; 0           ; 0           ; 1                   ; 0           ; 0           ; 0           ; 1           ;
+; m_states.s5              ; 0                    ; 0                        ; 0                        ; 0           ; 0           ; 0           ; 1           ; 0                   ; 0           ; 0           ; 0           ; 1           ;
+; m_states.s6              ; 0                    ; 0                        ; 0                        ; 0           ; 0           ; 1           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 1           ;
+; m_states.s7              ; 0                    ; 0                        ; 0                        ; 0           ; 1           ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 1           ;
+; m_states.s8              ; 0                    ; 0                        ; 0                        ; 1           ; 0           ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 1           ;
+; m_states.STEP_CHECK_FRST ; 0                    ; 0                        ; 1                        ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 1           ;
+; m_states.STEP_CHECK_SCND ; 0                    ; 1                        ; 0                        ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 1           ;
+; m_states.ONE_S_WAIT2     ; 1                    ; 0                        ; 0                        ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 1           ;
++--------------------------+----------------------+--------------------------+--------------------------+-------------+-------------+-------------+-------------+---------------------+-------------+-------------+-------------+-------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------+
+; State Machine - |project|hcsr04:hcsr04|state                                                                      ;
++-------------------+-------------------+-----------------+------------------+------------------+-------------------+
+; Name              ; state.error_state ; state.end_state ; state.hcsr_state ; state.idle_state ; state.clear_state ;
++-------------------+-------------------+-----------------+------------------+------------------+-------------------+
+; state.clear_state ; 0                 ; 0               ; 0                ; 0                ; 0                 ;
+; state.idle_state  ; 0                 ; 0               ; 0                ; 1                ; 1                 ;
+; state.hcsr_state  ; 0                 ; 0               ; 1                ; 0                ; 1                 ;
+; state.end_state   ; 0                 ; 1               ; 0                ; 0                ; 1                 ;
+; state.error_state ; 1                 ; 0               ; 0                ; 0                ; 1                 ;
++-------------------+-------------------+-----------------+------------------+------------------+-------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                   ;
++-----------------------------------------------------+------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal    ; Free of Timing Hazards ;
++-----------------------------------------------------+------------------------+------------------------+
+; VGA:Inst_VGA|R[0]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|R[1]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|R[2]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|R[3]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|R[4]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|R[5]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|R[6]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|R[7]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|G[0]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|G[1]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|G[2]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|G[3]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|G[4]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|G[5]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|G[6]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|G[7]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|B[0]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|B[1]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|B[2]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|B[3]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|B[4]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|B[5]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|B[6]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|B[7]                                   ; VGA:Inst_VGA|R[7]      ; yes                    ;
+; VGA:Inst_VGA|ball_col[1]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_row[1]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_col[2]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_row[2]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_col[9]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_col[8]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_col[7]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_col[6]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_col[5]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_col[4]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_col[3]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_col[10]                           ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_row[9]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_row[8]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_row[7]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_row[6]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_row[5]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_row[4]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_row[3]                            ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; VGA:Inst_VGA|ball_row[10]                           ; VGA:Inst_VGA|LessThan3 ; yes                    ;
+; Number of user-specified and inferred latches = 44  ;                        ;                        ;
++-----------------------------------------------------+------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                          ;
++--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+
+; Register name                                                                  ; Reason for Removal                                                                         ;
++--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+
+; debounce:Inst_debounce|c[0..23]                                                ; Lost fanout                                                                                ;
+; debounce:Inst_debounce|o                                                       ; Stuck at GND due to stuck port data_in                                                     ;
+; VGA:Inst_VGA|co[2]                                                             ; Merged with VGA:Inst_VGA|co[8]                                                             ;
+; VGA:Inst_VGA|co[0]                                                             ; Stuck at GND due to stuck port data_in                                                     ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[0] ; Stuck at VCC due to stuck port data_in                                                     ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[1] ; Merged with ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|busy_sr[0] ;
+; hcsr04:hcsr04|state.end_state                                                  ; Lost fanout                                                                                ;
+; hcsr04:hcsr04|state.error_state                                                ; Stuck at GND due to stuck port data_in                                                     ;
+; ov7670_capture:Inst_ov7670_capture|address[17,18]                              ; Lost fanout                                                                                ;
+; Total Number of Removed Registers = 33                                         ;                                                                                            ;
++--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                          ;
++------------------------------------------------+--------------------+------------------------------------------------+
+; Register name                                  ; Reason for Removal ; Registers Removed due to This Register         ;
++------------------------------------------------+--------------------+------------------------------------------------+
+; ov7670_capture:Inst_ov7670_capture|address[18] ; Lost Fanouts       ; ov7670_capture:Inst_ov7670_capture|address[17] ;
++------------------------------------------------+--------------------+------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 360   ;
+; Number of registers using Synchronous Clear  ; 138   ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 207   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                              ;
++---------------------------------------------------------------------------------+---------+
+; Inverted Register                                                               ; Fan out ;
++---------------------------------------------------------------------------------+---------+
+; VGA:Inst_VGA|Vcnt[9]                                                            ; 11      ;
+; VGA:Inst_VGA|Vcnt[3]                                                            ; 10      ;
+; motor:motor_1|count[31]                                                         ; 2       ;
+; motor:motor_1|count[0]                                                          ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|divider[0]  ; 5       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[31] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[30] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[29] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[28] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[27] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[26] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[25] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[24] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[23] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[22] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[21] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[20] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[19] ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[18] ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[17] ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[16] ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[15] ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[14] ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[13] ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[12] ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[11] ; 2       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[10] ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[9]  ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[8]  ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[7]  ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[6]  ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[5]  ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[4]  ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[3]  ; 1       ;
+; ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[2]  ; 2       ;
+; Total number of inverted registers = 35                                         ;         ;
++---------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                                                                                                    ;
++---------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------+
+; Register Name                                                                               ; Megafunction                                                                               ; Type ;
++---------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------+
+; ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|sreg[0..15] ; ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|Mux0_rtl_0 ; ROM  ;
++---------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |project|motor:motor_1|step_count[0]                                                     ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |project|ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|divider[5]  ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |project|ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|busy_sr[23] ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 0 LEs                ; 38 LEs                 ; Yes        ; |project|Address_Generator:Inst_Address_Generator|val[7]                                 ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |project|ov7670_capture:Inst_ov7670_capture|href_last[4]                                 ;
+; 9:1                ; 7 bits    ; 42 LEs        ; 35 LEs               ; 7 LEs                  ; Yes        ; |project|VGA:Inst_VGA|co[3]                                                              ;
+; 5:1                ; 30 bits   ; 90 LEs        ; 0 LEs                ; 90 LEs                 ; Yes        ; |project|motor:motor_1|count[24]                                                         ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |project|ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[27] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |project|ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender|data_sr[8]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |project|motor:motor_1|count[31]                                                         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |project|hcsr04:hcsr04|centimeters_hund                                                  ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |project|hcsr04:hcsr04|centimeters                                                       ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |project|hcsr04:hcsr04|centimeters_ones                                                  ;
+; 6:1                ; 17 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; No         ; |project|hcsr04:hcsr04|count                                                             ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |project|hcsr04:hcsr04|centimeters_tens                                                  ;
+; 26:1               ; 12 bits   ; 204 LEs       ; 204 LEs              ; 0 LEs                  ; No         ; |project|VGA:Inst_VGA|G[6]                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Source assignments for frameb:frameb_1|altsyncram:altsyncram_component|altsyncram_erv3:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------+
+; Assignment                      ; Value              ; From ; To                                      ;
++---------------------------------+--------------------+------+-----------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                       ;
++---------------------------------+--------------------+------+-----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|altsyncram:Mux0_rtl_0|altsyncram_dl51:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                                            ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                             ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clock_pll:clock_pll_1|clock_pll_0002:clock_pll_inst|altera_pll:altera_pll_i ;
++--------------------------------------+------------------------+----------------------------------------------------------+
+; Parameter Name                       ; Value                  ; Type                                                     ;
++--------------------------------------+------------------------+----------------------------------------------------------+
+; reference_clock_frequency            ; 50.0 MHz               ; String                                                   ;
+; fractional_vco_multiplier            ; true                   ; String                                                   ;
+; pll_type                             ; General                ; String                                                   ;
+; pll_subtype                          ; General                ; String                                                   ;
+; number_of_clocks                     ; 3                      ; Signed Integer                                           ;
+; operation_mode                       ; direct                 ; String                                                   ;
+; deserialization_factor               ; 4                      ; Signed Integer                                           ;
+; data_rate                            ; 0                      ; Signed Integer                                           ;
+; sim_additional_refclk_cycles_to_lock ; 0                      ; Signed Integer                                           ;
+; output_clock_frequency0              ; 25.000000 MHz          ; String                                                   ;
+; phase_shift0                         ; 0 ps                   ; String                                                   ;
+; duty_cycle0                          ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency1              ; 1.000000 MHz           ; String                                                   ;
+; phase_shift1                         ; 0 ps                   ; String                                                   ;
+; duty_cycle1                          ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency2              ; 50.000000 MHz          ; String                                                   ;
+; phase_shift2                         ; 0 ps                   ; String                                                   ;
+; duty_cycle2                          ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency3              ; 0 MHz                  ; String                                                   ;
+; phase_shift3                         ; 0 ps                   ; String                                                   ;
+; duty_cycle3                          ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency4              ; 0 MHz                  ; String                                                   ;
+; phase_shift4                         ; 0 ps                   ; String                                                   ;
+; duty_cycle4                          ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency5              ; 0 MHz                  ; String                                                   ;
+; phase_shift5                         ; 0 ps                   ; String                                                   ;
+; duty_cycle5                          ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency6              ; 0 MHz                  ; String                                                   ;
+; phase_shift6                         ; 0 ps                   ; String                                                   ;
+; duty_cycle6                          ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency7              ; 0 MHz                  ; String                                                   ;
+; phase_shift7                         ; 0 ps                   ; String                                                   ;
+; duty_cycle7                          ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency8              ; 0 MHz                  ; String                                                   ;
+; phase_shift8                         ; 0 ps                   ; String                                                   ;
+; duty_cycle8                          ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency9              ; 0 MHz                  ; String                                                   ;
+; phase_shift9                         ; 0 ps                   ; String                                                   ;
+; duty_cycle9                          ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency10             ; 0 MHz                  ; String                                                   ;
+; phase_shift10                        ; 0 ps                   ; String                                                   ;
+; duty_cycle10                         ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency11             ; 0 MHz                  ; String                                                   ;
+; phase_shift11                        ; 0 ps                   ; String                                                   ;
+; duty_cycle11                         ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency12             ; 0 MHz                  ; String                                                   ;
+; phase_shift12                        ; 0 ps                   ; String                                                   ;
+; duty_cycle12                         ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency13             ; 0 MHz                  ; String                                                   ;
+; phase_shift13                        ; 0 ps                   ; String                                                   ;
+; duty_cycle13                         ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency14             ; 0 MHz                  ; String                                                   ;
+; phase_shift14                        ; 0 ps                   ; String                                                   ;
+; duty_cycle14                         ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency15             ; 0 MHz                  ; String                                                   ;
+; phase_shift15                        ; 0 ps                   ; String                                                   ;
+; duty_cycle15                         ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency16             ; 0 MHz                  ; String                                                   ;
+; phase_shift16                        ; 0 ps                   ; String                                                   ;
+; duty_cycle16                         ; 50                     ; Signed Integer                                           ;
+; output_clock_frequency17             ; 0 MHz                  ; String                                                   ;
+; phase_shift17                        ; 0 ps                   ; String                                                   ;
+; duty_cycle17                         ; 50                     ; Signed Integer                                           ;
+; clock_name_0                         ;                        ; String                                                   ;
+; clock_name_1                         ;                        ; String                                                   ;
+; clock_name_2                         ;                        ; String                                                   ;
+; clock_name_3                         ;                        ; String                                                   ;
+; clock_name_4                         ;                        ; String                                                   ;
+; clock_name_5                         ;                        ; String                                                   ;
+; clock_name_6                         ;                        ; String                                                   ;
+; clock_name_7                         ;                        ; String                                                   ;
+; clock_name_8                         ;                        ; String                                                   ;
+; clock_name_global_0                  ; false                  ; String                                                   ;
+; clock_name_global_1                  ; false                  ; String                                                   ;
+; clock_name_global_2                  ; false                  ; String                                                   ;
+; clock_name_global_3                  ; false                  ; String                                                   ;
+; clock_name_global_4                  ; false                  ; String                                                   ;
+; clock_name_global_5                  ; false                  ; String                                                   ;
+; clock_name_global_6                  ; false                  ; String                                                   ;
+; clock_name_global_7                  ; false                  ; String                                                   ;
+; clock_name_global_8                  ; false                  ; String                                                   ;
+; m_cnt_hi_div                         ; 1                      ; Signed Integer                                           ;
+; m_cnt_lo_div                         ; 1                      ; Signed Integer                                           ;
+; m_cnt_bypass_en                      ; false                  ; String                                                   ;
+; m_cnt_odd_div_duty_en                ; false                  ; String                                                   ;
+; n_cnt_hi_div                         ; 1                      ; Signed Integer                                           ;
+; n_cnt_lo_div                         ; 1                      ; Signed Integer                                           ;
+; n_cnt_bypass_en                      ; false                  ; String                                                   ;
+; n_cnt_odd_div_duty_en                ; false                  ; String                                                   ;
+; c_cnt_hi_div0                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div0                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en0                     ; false                  ; String                                                   ;
+; c_cnt_in_src0                        ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en0               ; false                  ; String                                                   ;
+; c_cnt_prst0                          ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst0                   ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div1                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div1                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en1                     ; false                  ; String                                                   ;
+; c_cnt_in_src1                        ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en1               ; false                  ; String                                                   ;
+; c_cnt_prst1                          ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst1                   ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div2                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div2                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en2                     ; false                  ; String                                                   ;
+; c_cnt_in_src2                        ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en2               ; false                  ; String                                                   ;
+; c_cnt_prst2                          ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst2                   ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div3                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div3                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en3                     ; false                  ; String                                                   ;
+; c_cnt_in_src3                        ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en3               ; false                  ; String                                                   ;
+; c_cnt_prst3                          ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst3                   ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div4                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div4                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en4                     ; false                  ; String                                                   ;
+; c_cnt_in_src4                        ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en4               ; false                  ; String                                                   ;
+; c_cnt_prst4                          ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst4                   ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div5                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div5                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en5                     ; false                  ; String                                                   ;
+; c_cnt_in_src5                        ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en5               ; false                  ; String                                                   ;
+; c_cnt_prst5                          ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst5                   ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div6                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div6                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en6                     ; false                  ; String                                                   ;
+; c_cnt_in_src6                        ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en6               ; false                  ; String                                                   ;
+; c_cnt_prst6                          ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst6                   ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div7                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div7                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en7                     ; false                  ; String                                                   ;
+; c_cnt_in_src7                        ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en7               ; false                  ; String                                                   ;
+; c_cnt_prst7                          ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst7                   ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div8                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div8                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en8                     ; false                  ; String                                                   ;
+; c_cnt_in_src8                        ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en8               ; false                  ; String                                                   ;
+; c_cnt_prst8                          ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst8                   ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div9                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div9                        ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en9                     ; false                  ; String                                                   ;
+; c_cnt_in_src9                        ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en9               ; false                  ; String                                                   ;
+; c_cnt_prst9                          ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst9                   ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div10                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div10                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en10                    ; false                  ; String                                                   ;
+; c_cnt_in_src10                       ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en10              ; false                  ; String                                                   ;
+; c_cnt_prst10                         ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst10                  ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div11                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div11                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en11                    ; false                  ; String                                                   ;
+; c_cnt_in_src11                       ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en11              ; false                  ; String                                                   ;
+; c_cnt_prst11                         ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst11                  ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div12                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div12                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en12                    ; false                  ; String                                                   ;
+; c_cnt_in_src12                       ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en12              ; false                  ; String                                                   ;
+; c_cnt_prst12                         ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst12                  ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div13                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div13                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en13                    ; false                  ; String                                                   ;
+; c_cnt_in_src13                       ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en13              ; false                  ; String                                                   ;
+; c_cnt_prst13                         ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst13                  ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div14                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div14                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en14                    ; false                  ; String                                                   ;
+; c_cnt_in_src14                       ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en14              ; false                  ; String                                                   ;
+; c_cnt_prst14                         ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst14                  ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div15                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div15                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en15                    ; false                  ; String                                                   ;
+; c_cnt_in_src15                       ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en15              ; false                  ; String                                                   ;
+; c_cnt_prst15                         ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst15                  ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div16                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div16                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en16                    ; false                  ; String                                                   ;
+; c_cnt_in_src16                       ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en16              ; false                  ; String                                                   ;
+; c_cnt_prst16                         ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst16                  ; 0                      ; Signed Integer                                           ;
+; c_cnt_hi_div17                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_lo_div17                       ; 1                      ; Signed Integer                                           ;
+; c_cnt_bypass_en17                    ; false                  ; String                                                   ;
+; c_cnt_in_src17                       ; ph_mux_clk             ; String                                                   ;
+; c_cnt_odd_div_duty_en17              ; false                  ; String                                                   ;
+; c_cnt_prst17                         ; 1                      ; Signed Integer                                           ;
+; c_cnt_ph_mux_prst17                  ; 0                      ; Signed Integer                                           ;
+; pll_vco_div                          ; 1                      ; Signed Integer                                           ;
+; pll_slf_rst                          ; false                  ; String                                                   ;
+; pll_bw_sel                           ; low                    ; String                                                   ;
+; pll_output_clk_frequency             ; 0 MHz                  ; String                                                   ;
+; pll_cp_current                       ; 0                      ; Signed Integer                                           ;
+; pll_bwctrl                           ; 0                      ; Signed Integer                                           ;
+; pll_fractional_division              ; 1                      ; Signed Integer                                           ;
+; pll_fractional_cout                  ; 24                     ; Signed Integer                                           ;
+; pll_dsm_out_sel                      ; 1st_order              ; String                                                   ;
+; mimic_fbclk_type                     ; gclk                   ; String                                                   ;
+; pll_fbclk_mux_1                      ; glb                    ; String                                                   ;
+; pll_fbclk_mux_2                      ; fb_1                   ; String                                                   ;
+; pll_m_cnt_in_src                     ; ph_mux_clk             ; String                                                   ;
+; pll_vcoph_div                        ; 1                      ; Signed Integer                                           ;
+; refclk1_frequency                    ; 0 MHz                  ; String                                                   ;
+; pll_clkin_0_src                      ; clk_0                  ; String                                                   ;
+; pll_clkin_1_src                      ; clk_0                  ; String                                                   ;
+; pll_clk_loss_sw_en                   ; false                  ; String                                                   ;
+; pll_auto_clk_sw_en                   ; false                  ; String                                                   ;
+; pll_manu_clk_sw_en                   ; false                  ; String                                                   ;
+; pll_clk_sw_dly                       ; 0                      ; Signed Integer                                           ;
+; pll_extclk_0_cnt_src                 ; pll_extclk_cnt_src_vss ; String                                                   ;
+; pll_extclk_1_cnt_src                 ; pll_extclk_cnt_src_vss ; String                                                   ;
++--------------------------------------+------------------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: frameb:frameb_1|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------+
+; Parameter Name                     ; Value                ; Type                             ;
++------------------------------------+----------------------+----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                          ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                   ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                          ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                          ;
+; WIDTH_A                            ; 12                   ; Signed Integer                   ;
+; WIDTHAD_A                          ; 17                   ; Signed Integer                   ;
+; NUMWORDS_A                         ; 131072               ; Signed Integer                   ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                          ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                          ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                          ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                          ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                          ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                          ;
+; WIDTH_B                            ; 12                   ; Signed Integer                   ;
+; WIDTHAD_B                          ; 17                   ; Signed Integer                   ;
+; NUMWORDS_B                         ; 131072               ; Signed Integer                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                          ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                          ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                          ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                          ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                          ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                          ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                          ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                          ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                          ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                          ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                          ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                   ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                          ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                          ;
+; INIT_FILE                          ; UNUSED               ; Untyped                          ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                          ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer                   ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                          ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                          ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer                   ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                          ;
+; CBXI_PARAMETER                     ; altsyncram_erv3      ; Untyped                          ;
++------------------------------------+----------------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: motor:motor_1 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; wait_count     ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|altsyncram:Mux0_rtl_0 ;
++------------------------------------+------------------------+------------------------------------------------------------------------------------------+
+; Parameter Name                     ; Value                  ; Type                                                                                     ;
++------------------------------------+------------------------+------------------------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                      ; Untyped                                                                                  ;
+; AUTO_CARRY_CHAINS                  ; ON                     ; AUTO_CARRY                                                                               ;
+; IGNORE_CARRY_BUFFERS               ; OFF                    ; IGNORE_CARRY                                                                             ;
+; AUTO_CASCADE_CHAINS                ; ON                     ; AUTO_CASCADE                                                                             ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                    ; IGNORE_CASCADE                                                                           ;
+; WIDTH_BYTEENA                      ; 1                      ; Untyped                                                                                  ;
+; OPERATION_MODE                     ; ROM                    ; Untyped                                                                                  ;
+; WIDTH_A                            ; 16                     ; Untyped                                                                                  ;
+; WIDTHAD_A                          ; 8                      ; Untyped                                                                                  ;
+; NUMWORDS_A                         ; 256                    ; Untyped                                                                                  ;
+; OUTDATA_REG_A                      ; UNREGISTERED           ; Untyped                                                                                  ;
+; ADDRESS_ACLR_A                     ; NONE                   ; Untyped                                                                                  ;
+; OUTDATA_ACLR_A                     ; NONE                   ; Untyped                                                                                  ;
+; WRCONTROL_ACLR_A                   ; NONE                   ; Untyped                                                                                  ;
+; INDATA_ACLR_A                      ; NONE                   ; Untyped                                                                                  ;
+; BYTEENA_ACLR_A                     ; NONE                   ; Untyped                                                                                  ;
+; WIDTH_B                            ; 1                      ; Untyped                                                                                  ;
+; WIDTHAD_B                          ; 1                      ; Untyped                                                                                  ;
+; NUMWORDS_B                         ; 1                      ; Untyped                                                                                  ;
+; INDATA_REG_B                       ; CLOCK1                 ; Untyped                                                                                  ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                 ; Untyped                                                                                  ;
+; RDCONTROL_REG_B                    ; CLOCK1                 ; Untyped                                                                                  ;
+; ADDRESS_REG_B                      ; CLOCK1                 ; Untyped                                                                                  ;
+; OUTDATA_REG_B                      ; UNREGISTERED           ; Untyped                                                                                  ;
+; BYTEENA_REG_B                      ; CLOCK1                 ; Untyped                                                                                  ;
+; INDATA_ACLR_B                      ; NONE                   ; Untyped                                                                                  ;
+; WRCONTROL_ACLR_B                   ; NONE                   ; Untyped                                                                                  ;
+; ADDRESS_ACLR_B                     ; NONE                   ; Untyped                                                                                  ;
+; OUTDATA_ACLR_B                     ; NONE                   ; Untyped                                                                                  ;
+; RDCONTROL_ACLR_B                   ; NONE                   ; Untyped                                                                                  ;
+; BYTEENA_ACLR_B                     ; NONE                   ; Untyped                                                                                  ;
+; WIDTH_BYTEENA_A                    ; 1                      ; Untyped                                                                                  ;
+; WIDTH_BYTEENA_B                    ; 1                      ; Untyped                                                                                  ;
+; RAM_BLOCK_TYPE                     ; AUTO                   ; Untyped                                                                                  ;
+; BYTE_SIZE                          ; 8                      ; Untyped                                                                                  ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE              ; Untyped                                                                                  ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ   ; Untyped                                                                                  ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ   ; Untyped                                                                                  ;
+; INIT_FILE                          ; Proje.project0.rtl.mif ; Untyped                                                                                  ;
+; INIT_FILE_LAYOUT                   ; PORT_A                 ; Untyped                                                                                  ;
+; MAXIMUM_DEPTH                      ; 0                      ; Untyped                                                                                  ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                 ; Untyped                                                                                  ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                 ; Untyped                                                                                  ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                 ; Untyped                                                                                  ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                 ; Untyped                                                                                  ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN        ; Untyped                                                                                  ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN        ; Untyped                                                                                  ;
+; ENABLE_ECC                         ; FALSE                  ; Untyped                                                                                  ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                  ; Untyped                                                                                  ;
+; WIDTH_ECCSTATUS                    ; 3                      ; Untyped                                                                                  ;
+; DEVICE_FAMILY                      ; Cyclone V              ; Untyped                                                                                  ;
+; CBXI_PARAMETER                     ; altsyncram_dl51        ; Untyped                                                                                  ;
++------------------------------------+------------------------+------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: VGA:Inst_VGA|lpm_divide:Div0 ;
++------------------------+----------------+-------------------------------------+
+; Parameter Name         ; Value          ; Type                                ;
++------------------------+----------------+-------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                             ;
+; LPM_WIDTHD             ; 8              ; Untyped                             ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                             ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                             ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                             ;
+; CBXI_PARAMETER         ; lpm_divide_epo ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                      ;
++------------------------+----------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: VGA:Inst_VGA|lpm_divide:Div1 ;
++------------------------+----------------+-------------------------------------+
+; Parameter Name         ; Value          ; Type                                ;
++------------------------+----------------+-------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                             ;
+; LPM_WIDTHD             ; 8              ; Untyped                             ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                             ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                             ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                             ;
+; CBXI_PARAMETER         ; lpm_divide_epo ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                      ;
++------------------------+----------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                                  ;
++-------------------------------------------+-------------------------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                                                 ;
++-------------------------------------------+-------------------------------------------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                                                     ;
+; Entity Instance                           ; frameb:frameb_1|altsyncram:altsyncram_component                                                       ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                                             ;
+;     -- WIDTH_A                            ; 12                                                                                                    ;
+;     -- NUMWORDS_A                         ; 131072                                                                                                ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                          ;
+;     -- WIDTH_B                            ; 12                                                                                                    ;
+;     -- NUMWORDS_B                         ; 131072                                                                                                ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                             ;
+; Entity Instance                           ; ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|altsyncram:Mux0_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                                                                                   ;
+;     -- WIDTH_A                            ; 16                                                                                                    ;
+;     -- NUMWORDS_A                         ; 256                                                                                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                          ;
+;     -- WIDTH_B                            ; 1                                                                                                     ;
+;     -- NUMWORDS_B                         ; 1                                                                                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                             ;
++-------------------------------------------+-------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "VGA:Inst_VGA"                    ;
++---------------------------+-------+----------+--------------+
+; Port                      ; Type  ; Severity ; Details      ;
++---------------------------+-------+----------+--------------+
+; rez_160x120               ; Input ; Info     ; Stuck at VCC ;
+; rez_320x240               ; Input ; Info     ; Stuck at GND ;
+; distance_radar[31..8]     ; Input ; Info     ; Stuck at GND ;
+; sensor_location_in[31..1] ; Input ; Info     ; Stuck at GND ;
+; sensor_location_in[0]     ; Input ; Info     ; Stuck at VCC ;
++---------------------------+-------+----------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Address_Generator:Inst_Address_Generator"                                                      ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; rez_160x120     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; rez_320x240     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; address[18..17] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ov7670_capture:Inst_ov7670_capture"                                                         ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; rez_160x120  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; rez_320x240  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; addr[18..17] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender" ;
++----------+-------+----------+-------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                           ;
++----------+-------+----------+-------------------------------------------------------------------+
+; id[5..2] ; Input ; Info     ; Stuck at GND                                                      ;
+; id[7]    ; Input ; Info     ; Stuck at GND                                                      ;
+; id[6]    ; Input ; Info     ; Stuck at VCC                                                      ;
+; id[1]    ; Input ; Info     ; Stuck at VCC                                                      ;
+; id[0]    ; Input ; Info     ; Stuck at GND                                                      ;
++----------+-------+----------+-------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ov7670_controller:Inst_ov7670_controller"                                                      ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; config_finished ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "debounce:Inst_debounce" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; i    ; Input ; Info     ; Stuck at GND             ;
++------+-------+----------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "motor:motor_1"                                                                            ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; rst        ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; step_value ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "hcsr04:hcsr04"                                                                          ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; reset_n  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_fsm[1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_fsm[0] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; o_led0   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_led1   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_led2   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_led9   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "clock_pll:clock_pll_1"                                                                  ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; rst      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; outclk_1 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 360                         ;
+;     ENA               ; 102                         ;
+;     ENA SCLR          ; 105                         ;
+;     SCLR              ; 33                          ;
+;     SLD               ; 1                           ;
+;     plain             ; 119                         ;
+; arriav_io_obuf        ; 1                           ;
+; arriav_lcell_comb     ; 2105                        ;
+;     arith             ; 922                         ;
+;         0 data inputs ; 104                         ;
+;         1 data inputs ; 318                         ;
+;         2 data inputs ; 105                         ;
+;         3 data inputs ; 202                         ;
+;         4 data inputs ; 193                         ;
+;     extend            ; 5                           ;
+;         7 data inputs ; 5                           ;
+;     normal            ; 1162                        ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 483                         ;
+;         3 data inputs ; 127                         ;
+;         4 data inputs ; 237                         ;
+;         5 data inputs ; 96                          ;
+;         6 data inputs ; 208                         ;
+;     shared            ; 16                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 14                          ;
+; arriav_mac            ; 6                           ;
+; boundary_port         ; 73                          ;
+; generic_pll           ; 2                           ;
+; stratixv_ram_block    ; 208                         ;
+;                       ;                             ;
+; Max LUT depth         ; 59.20                       ;
+; Average LUT depth     ; 30.55                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri May 26 00:56:59 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Proje -c Proje
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file src/ip/ram/frameb.vhd
+    Info (12022): Found design unit 1: frameb-SYN File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/ram/frameb.vhd Line: 57
+    Info (12023): Found entity 1: frameb File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/ram/frameb.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file src/ip/clock/clock_pll.vhd
+    Info (12022): Found design unit 1: clock_pll-rtl File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/clock/clock_pll.vhd Line: 21
+    Info (12023): Found entity 1: clock_pll File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/clock/clock_pll.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file src/ip/clock/clock_pll.vhd
+    Info (12022): Found design unit 1: clock_pll-rtl File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/clock/clock_pll.vhd Line: 21
+    Info (12023): Found entity 1: clock_pll File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/clock/clock_pll.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file src/ip/clock/clock_pll/clock_pll_0002.v
+    Info (12023): Found entity 1: clock_pll_0002 File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/clock/clock_pll/clock_pll_0002.v Line: 2
+Info (12021): Found 2 design units, including 1 entities, in source file src/vga.vhd
+    Info (12022): Found design unit 1: VGA-Behavioral File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 25
+    Info (12023): Found entity 1: VGA File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file src/project.vhd
+    Info (12022): Found design unit 1: project-Behavioral File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 44
+    Info (12023): Found entity 1: project File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file src/ov7670_registers.vhd
+    Info (12022): Found design unit 1: ov7670_registers-Behavioral File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ov7670_registers.vhd Line: 13
+    Info (12023): Found entity 1: ov7670_registers File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ov7670_registers.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file src/ov7670_controller.vhd
+    Info (12022): Found design unit 1: ov7670_controller-Behavioral File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ov7670_controller.vhd Line: 17
+    Info (12023): Found entity 1: ov7670_controller File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ov7670_controller.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file src/ov7670_capture.vhd
+    Info (12022): Found design unit 1: ov7670_capture-Behavioral File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ov7670_capture.vhd Line: 17
+    Info (12023): Found entity 1: ov7670_capture File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ov7670_capture.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file src/motor.vhd
+    Info (12022): Found design unit 1: motor-rtl File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/motor.vhd Line: 20
+    Info (12023): Found entity 1: motor File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/motor.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file src/i2c_sender.vhd
+    Info (12022): Found design unit 1: i2c_sender-Behavioral File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/i2c_sender.vhd Line: 16
+    Info (12023): Found entity 1: i2c_sender File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/i2c_sender.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file src/hcsr04.vhd
+    Info (12022): Found design unit 1: hcsr04-rtl File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 22
+    Info (12023): Found entity 1: hcsr04 File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file src/debounce.vhd
+    Info (12022): Found design unit 1: debounce-Behavioral File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/debounce.vhd Line: 12
+    Info (12023): Found entity 1: debounce File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/debounce.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file src/address_generator.vhd
+    Info (12022): Found design unit 1: Address_Generator-Behavioral File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/address_Generator.vhd Line: 15
+    Info (12023): Found entity 1: Address_Generator File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/address_Generator.vhd Line: 7
+Info (12127): Elaborating entity "project" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at project.vhd(46): object "clk_1mhz" assigned a value but never read File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 46
+Warning (10036): Verilog HDL or VHDL warning at project.vhd(58): object "o_led0" assigned a value but never read File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 58
+Warning (10036): Verilog HDL or VHDL warning at project.vhd(59): object "o_led1" assigned a value but never read File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 59
+Warning (10036): Verilog HDL or VHDL warning at project.vhd(60): object "o_led2" assigned a value but never read File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 60
+Warning (10036): Verilog HDL or VHDL warning at project.vhd(61): object "o_led9" assigned a value but never read File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 61
+Warning (10036): Verilog HDL or VHDL warning at project.vhd(63): object "step_value" assigned a value but never read File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 63
+Warning (10036): Verilog HDL or VHDL warning at project.vhd(67): object "config_finished" assigned a value but never read File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 67
+Info (12128): Elaborating entity "clock_pll" for hierarchy "clock_pll:clock_pll_1" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 108
+Info (12128): Elaborating entity "clock_pll_0002" for hierarchy "clock_pll:clock_pll_1|clock_pll_0002:clock_pll_inst" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/clock/clock_pll.vhd Line: 35
+Info (12128): Elaborating entity "altera_pll" for hierarchy "clock_pll:clock_pll_1|clock_pll_0002:clock_pll_inst|altera_pll:altera_pll_i" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/clock/clock_pll/clock_pll_0002.v Line: 91
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
+Info (12130): Elaborated megafunction instantiation "clock_pll:clock_pll_1|clock_pll_0002:clock_pll_inst|altera_pll:altera_pll_i" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/clock/clock_pll/clock_pll_0002.v Line: 91
+Info (12133): Instantiated megafunction "clock_pll:clock_pll_1|clock_pll_0002:clock_pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/clock/clock_pll/clock_pll_0002.v Line: 91
+    Info (12134): Parameter "fractional_vco_multiplier" = "true"
+    Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
+    Info (12134): Parameter "operation_mode" = "direct"
+    Info (12134): Parameter "number_of_clocks" = "3"
+    Info (12134): Parameter "output_clock_frequency0" = "25.000000 MHz"
+    Info (12134): Parameter "phase_shift0" = "0 ps"
+    Info (12134): Parameter "duty_cycle0" = "50"
+    Info (12134): Parameter "output_clock_frequency1" = "1.000000 MHz"
+    Info (12134): Parameter "phase_shift1" = "0 ps"
+    Info (12134): Parameter "duty_cycle1" = "50"
+    Info (12134): Parameter "output_clock_frequency2" = "50.000000 MHz"
+    Info (12134): Parameter "phase_shift2" = "0 ps"
+    Info (12134): Parameter "duty_cycle2" = "50"
+    Info (12134): Parameter "output_clock_frequency3" = "0 MHz"
+    Info (12134): Parameter "phase_shift3" = "0 ps"
+    Info (12134): Parameter "duty_cycle3" = "50"
+    Info (12134): Parameter "output_clock_frequency4" = "0 MHz"
+    Info (12134): Parameter "phase_shift4" = "0 ps"
+    Info (12134): Parameter "duty_cycle4" = "50"
+    Info (12134): Parameter "output_clock_frequency5" = "0 MHz"
+    Info (12134): Parameter "phase_shift5" = "0 ps"
+    Info (12134): Parameter "duty_cycle5" = "50"
+    Info (12134): Parameter "output_clock_frequency6" = "0 MHz"
+    Info (12134): Parameter "phase_shift6" = "0 ps"
+    Info (12134): Parameter "duty_cycle6" = "50"
+    Info (12134): Parameter "output_clock_frequency7" = "0 MHz"
+    Info (12134): Parameter "phase_shift7" = "0 ps"
+    Info (12134): Parameter "duty_cycle7" = "50"
+    Info (12134): Parameter "output_clock_frequency8" = "0 MHz"
+    Info (12134): Parameter "phase_shift8" = "0 ps"
+    Info (12134): Parameter "duty_cycle8" = "50"
+    Info (12134): Parameter "output_clock_frequency9" = "0 MHz"
+    Info (12134): Parameter "phase_shift9" = "0 ps"
+    Info (12134): Parameter "duty_cycle9" = "50"
+    Info (12134): Parameter "output_clock_frequency10" = "0 MHz"
+    Info (12134): Parameter "phase_shift10" = "0 ps"
+    Info (12134): Parameter "duty_cycle10" = "50"
+    Info (12134): Parameter "output_clock_frequency11" = "0 MHz"
+    Info (12134): Parameter "phase_shift11" = "0 ps"
+    Info (12134): Parameter "duty_cycle11" = "50"
+    Info (12134): Parameter "output_clock_frequency12" = "0 MHz"
+    Info (12134): Parameter "phase_shift12" = "0 ps"
+    Info (12134): Parameter "duty_cycle12" = "50"
+    Info (12134): Parameter "output_clock_frequency13" = "0 MHz"
+    Info (12134): Parameter "phase_shift13" = "0 ps"
+    Info (12134): Parameter "duty_cycle13" = "50"
+    Info (12134): Parameter "output_clock_frequency14" = "0 MHz"
+    Info (12134): Parameter "phase_shift14" = "0 ps"
+    Info (12134): Parameter "duty_cycle14" = "50"
+    Info (12134): Parameter "output_clock_frequency15" = "0 MHz"
+    Info (12134): Parameter "phase_shift15" = "0 ps"
+    Info (12134): Parameter "duty_cycle15" = "50"
+    Info (12134): Parameter "output_clock_frequency16" = "0 MHz"
+    Info (12134): Parameter "phase_shift16" = "0 ps"
+    Info (12134): Parameter "duty_cycle16" = "50"
+    Info (12134): Parameter "output_clock_frequency17" = "0 MHz"
+    Info (12134): Parameter "phase_shift17" = "0 ps"
+    Info (12134): Parameter "duty_cycle17" = "50"
+    Info (12134): Parameter "pll_type" = "General"
+    Info (12134): Parameter "pll_subtype" = "General"
+Info (12128): Elaborating entity "hcsr04" for hierarchy "hcsr04:hcsr04" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 116
+Info (12128): Elaborating entity "frameb" for hierarchy "frameb:frameb_1" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 133
+Info (12128): Elaborating entity "altsyncram" for hierarchy "frameb:frameb_1|altsyncram:altsyncram_component" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/ram/frameb.vhd Line: 64
+Info (12130): Elaborated megafunction instantiation "frameb:frameb_1|altsyncram:altsyncram_component" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/ram/frameb.vhd Line: 64
+Info (12133): Instantiated megafunction "frameb:frameb_1|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ip/ram/frameb.vhd Line: 64
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "UNUSED"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "131072"
+    Info (12134): Parameter "numwords_b" = "131072"
+    Info (12134): Parameter "operation_mode" = "DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "12"
+    Info (12134): Parameter "width_b" = "12"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "17"
+    Info (12134): Parameter "widthad_b" = "17"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_erv3.tdf
+    Info (12023): Found entity 1: altsyncram_erv3 File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/altsyncram_erv3.tdf Line: 34
+Info (12128): Elaborating entity "altsyncram_erv3" for hierarchy "frameb:frameb_1|altsyncram:altsyncram_component|altsyncram_erv3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_tma.tdf
+    Info (12023): Found entity 1: decode_tma File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/decode_tma.tdf Line: 23
+Info (12128): Elaborating entity "decode_tma" for hierarchy "frameb:frameb_1|altsyncram:altsyncram_component|altsyncram_erv3:auto_generated|decode_tma:decode2" File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/altsyncram_erv3.tdf Line: 46
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_m2a.tdf
+    Info (12023): Found entity 1: decode_m2a File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/decode_m2a.tdf Line: 23
+Info (12128): Elaborating entity "decode_m2a" for hierarchy "frameb:frameb_1|altsyncram:altsyncram_component|altsyncram_erv3:auto_generated|decode_m2a:rden_decode_b" File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/altsyncram_erv3.tdf Line: 47
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_oib.tdf
+    Info (12023): Found entity 1: mux_oib File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/mux_oib.tdf Line: 23
+Info (12128): Elaborating entity "mux_oib" for hierarchy "frameb:frameb_1|altsyncram:altsyncram_component|altsyncram_erv3:auto_generated|mux_oib:mux3" File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/altsyncram_erv3.tdf Line: 49
+Info (12128): Elaborating entity "motor" for hierarchy "motor:motor_1" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 144
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:Inst_debounce" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 152
+Info (12128): Elaborating entity "ov7670_controller" for hierarchy "ov7670_controller:Inst_ov7670_controller" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 159
+Info (12128): Elaborating entity "i2c_sender" for hierarchy "ov7670_controller:Inst_ov7670_controller|i2c_sender:Inst_i2c_sender" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ov7670_controller.vhd Line: 52
+Info (12128): Elaborating entity "ov7670_registers" for hierarchy "ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/ov7670_controller.vhd Line: 67
+Info (12128): Elaborating entity "ov7670_capture" for hierarchy "ov7670_capture:Inst_ov7670_capture" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 171
+Info (12128): Elaborating entity "Address_Generator" for hierarchy "Address_Generator:Inst_Address_Generator" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 184
+Info (12128): Elaborating entity "VGA" for hierarchy "VGA:Inst_VGA" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 194
+Warning (10542): VHDL Variable Declaration warning at math_real_vhdl1993.vhd(3004): used initial value expression for variable "NEGATIVE" because variable was never assigned a value File: c:/intelfpga_lite/20.1/quartus/libraries/vhdl/ieee/1993/math_real_vhdl1993.vhd Line: 3004
+Warning (10540): VHDL Signal Declaration warning at vga.vhd(43): used explicit default value for signal "ball_size" because signal was never assigned a value File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 43
+Warning (10492): VHDL Process Statement warning at vga.vhd(141): signal "distance_radar" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 141
+Warning (10492): VHDL Process Statement warning at vga.vhd(142): signal "distance_radar" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 142
+Warning (10492): VHDL Process Statement warning at vga.vhd(149): signal "distance_radar" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 149
+Warning (10492): VHDL Process Statement warning at vga.vhd(149): signal "cosrom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 149
+Warning (10492): VHDL Process Statement warning at vga.vhd(149): signal "co" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 149
+Warning (10492): VHDL Process Statement warning at vga.vhd(150): signal "distance_radar" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 150
+Warning (10492): VHDL Process Statement warning at vga.vhd(150): signal "sinrom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 150
+Warning (10492): VHDL Process Statement warning at vga.vhd(150): signal "co" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 150
+Warning (10492): VHDL Process Statement warning at vga.vhd(155): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at vga.vhd(155): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at vga.vhd(165): signal "activecam_i" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 165
+Warning (10492): VHDL Process Statement warning at vga.vhd(166): signal "cam_data_i" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 166
+Warning (10492): VHDL Process Statement warning at vga.vhd(167): signal "cam_data_i" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 167
+Warning (10492): VHDL Process Statement warning at vga.vhd(168): signal "cam_data_i" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 168
+Warning (10492): VHDL Process Statement warning at vga.vhd(171): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 171
+Warning (10492): VHDL Process Statement warning at vga.vhd(171): signal "ball_col" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 171
+Warning (10492): VHDL Process Statement warning at vga.vhd(171): signal "ball_size" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 171
+Warning (10492): VHDL Process Statement warning at vga.vhd(171): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 171
+Warning (10492): VHDL Process Statement warning at vga.vhd(171): signal "ball_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 171
+Warning (10492): VHDL Process Statement warning at vga.vhd(177): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 177
+Warning (10492): VHDL Process Statement warning at vga.vhd(177): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 177
+Warning (10492): VHDL Process Statement warning at vga.vhd(178): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 178
+Warning (10492): VHDL Process Statement warning at vga.vhd(178): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 178
+Warning (10492): VHDL Process Statement warning at vga.vhd(184): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 184
+Warning (10492): VHDL Process Statement warning at vga.vhd(184): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 184
+Warning (10492): VHDL Process Statement warning at vga.vhd(185): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 185
+Warning (10492): VHDL Process Statement warning at vga.vhd(185): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 185
+Warning (10492): VHDL Process Statement warning at vga.vhd(191): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 191
+Warning (10492): VHDL Process Statement warning at vga.vhd(191): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 191
+Warning (10492): VHDL Process Statement warning at vga.vhd(192): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 192
+Warning (10492): VHDL Process Statement warning at vga.vhd(192): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 192
+Warning (10492): VHDL Process Statement warning at vga.vhd(198): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 198
+Warning (10492): VHDL Process Statement warning at vga.vhd(198): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 198
+Warning (10492): VHDL Process Statement warning at vga.vhd(199): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 199
+Warning (10492): VHDL Process Statement warning at vga.vhd(199): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 199
+Warning (10492): VHDL Process Statement warning at vga.vhd(205): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 205
+Warning (10492): VHDL Process Statement warning at vga.vhd(205): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 205
+Warning (10492): VHDL Process Statement warning at vga.vhd(206): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 206
+Warning (10492): VHDL Process Statement warning at vga.vhd(206): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 206
+Warning (10492): VHDL Process Statement warning at vga.vhd(212): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 212
+Warning (10492): VHDL Process Statement warning at vga.vhd(212): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 212
+Warning (10492): VHDL Process Statement warning at vga.vhd(213): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 213
+Warning (10492): VHDL Process Statement warning at vga.vhd(213): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 213
+Warning (10492): VHDL Process Statement warning at vga.vhd(219): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 219
+Warning (10492): VHDL Process Statement warning at vga.vhd(219): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 219
+Warning (10492): VHDL Process Statement warning at vga.vhd(220): signal "pixel_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 220
+Warning (10492): VHDL Process Statement warning at vga.vhd(220): signal "pixel_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 220
+Warning (10631): VHDL Process Statement warning at vga.vhd(138): inferring latch(es) for signal or variable "ball_row", which holds its previous value in one or more paths through the process File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Warning (10631): VHDL Process Statement warning at vga.vhd(138): inferring latch(es) for signal or variable "ball_col", which holds its previous value in one or more paths through the process File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Warning (10631): VHDL Process Statement warning at vga.vhd(138): inferring latch(es) for signal or variable "R", which holds its previous value in one or more paths through the process File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Warning (10631): VHDL Process Statement warning at vga.vhd(138): inferring latch(es) for signal or variable "G", which holds its previous value in one or more paths through the process File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Warning (10631): VHDL Process Statement warning at vga.vhd(138): inferring latch(es) for signal or variable "B", which holds its previous value in one or more paths through the process File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "B[0]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "B[1]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "B[2]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "B[3]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "B[4]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "B[5]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "B[6]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "B[7]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "G[0]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "G[1]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "G[2]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "G[3]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "G[4]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "G[5]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "G[6]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "G[7]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "R[0]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "R[1]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "R[2]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "R[3]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "R[4]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "R[5]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "R[6]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "R[7]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[0]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[1]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[2]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[3]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[4]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[5]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[6]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[7]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[8]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[9]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[10]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[11]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[12]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[13]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[14]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[15]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[16]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[17]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[18]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[19]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[20]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[21]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[22]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[23]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[24]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[25]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[26]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[27]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[28]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[29]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[30]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_col[31]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[0]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[1]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[2]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[3]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[4]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[5]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[6]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[7]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[8]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[9]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[10]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[11]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[12]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[13]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[14]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[15]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[16]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[17]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[18]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[19]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[20]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[21]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[22]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[23]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[24]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[25]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[26]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[27]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[28]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[29]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[30]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Info (10041): Inferred latch for "ball_row[31]" at vga.vhd(138) File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following PLL node(s):
+        Warning (14320): Synthesized away node "clock_pll:clock_pll_1|clock_pll_0002:clock_pll_inst|altera_pll:altera_pll_i|outclk_wire[1]" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v Line: 749
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276031): Inferred altsyncram megafunction from the following design logic: "ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|Mux0_rtl_0"
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter RAM_BLOCK_TYPE set to AUTO
+        Info (286033): Parameter INIT_FILE set to Proje.project0.rtl.mif
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:Inst_VGA|Div0" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 149
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:Inst_VGA|Div1" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 150
+Info (12130): Elaborated megafunction instantiation "ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|altsyncram:Mux0_rtl_0"
+Info (12133): Instantiated megafunction "ov7670_controller:Inst_ov7670_controller|ov7670_registers:Inst_ov7670_registers|altsyncram:Mux0_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "AUTO"
+    Info (12134): Parameter "INIT_FILE" = "Proje.project0.rtl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_dl51.tdf
+    Info (12023): Found entity 1: altsyncram_dl51 File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/altsyncram_dl51.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "VGA:Inst_VGA|lpm_divide:Div0" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 149
+Info (12133): Instantiated megafunction "VGA:Inst_VGA|lpm_divide:Div0" with the following parameter: File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 149
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_epo.tdf
+    Info (12023): Found entity 1: lpm_divide_epo File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/lpm_divide_epo.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_nbg.tdf
+    Info (12023): Found entity 1: abs_divider_nbg File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/abs_divider_nbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_uve.tdf
+    Info (12023): Found entity 1: alt_u_div_uve File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/alt_u_div_uve.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_nn9.tdf
+    Info (12023): Found entity 1: lpm_abs_nn9 File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/lpm_abs_nn9.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_4p9.tdf
+    Info (12023): Found entity 1: lpm_abs_4p9 File: C:/Users/mbatu/Desktop/ELE432_RADAR/db/lpm_abs_4p9.tdf Line: 23
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "VGA:Inst_VGA|R[4]" merged with LATCH primitive "VGA:Inst_VGA|R[0]" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Info (13026): Duplicate LATCH primitive "VGA:Inst_VGA|R[5]" merged with LATCH primitive "VGA:Inst_VGA|R[1]" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Info (13026): Duplicate LATCH primitive "VGA:Inst_VGA|R[6]" merged with LATCH primitive "VGA:Inst_VGA|R[2]" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Info (13026): Duplicate LATCH primitive "VGA:Inst_VGA|R[7]" merged with LATCH primitive "VGA:Inst_VGA|R[3]" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Info (13026): Duplicate LATCH primitive "VGA:Inst_VGA|G[4]" merged with LATCH primitive "VGA:Inst_VGA|G[0]" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Info (13026): Duplicate LATCH primitive "VGA:Inst_VGA|G[5]" merged with LATCH primitive "VGA:Inst_VGA|G[1]" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Info (13026): Duplicate LATCH primitive "VGA:Inst_VGA|G[6]" merged with LATCH primitive "VGA:Inst_VGA|G[2]" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Info (13026): Duplicate LATCH primitive "VGA:Inst_VGA|G[7]" merged with LATCH primitive "VGA:Inst_VGA|G[3]" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Info (13026): Duplicate LATCH primitive "VGA:Inst_VGA|B[4]" merged with LATCH primitive "VGA:Inst_VGA|B[0]" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Info (13026): Duplicate LATCH primitive "VGA:Inst_VGA|B[5]" merged with LATCH primitive "VGA:Inst_VGA|B[1]" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Info (13026): Duplicate LATCH primitive "VGA:Inst_VGA|B[6]" merged with LATCH primitive "VGA:Inst_VGA|B[2]" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Info (13026): Duplicate LATCH primitive "VGA:Inst_VGA|B[7]" merged with LATCH primitive "VGA:Inst_VGA|B[3]" File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+Warning (13012): Latch VGA:Inst_VGA|R[0] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA:Inst_VGA|Hcnt[9] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 73
+Warning (13012): Latch VGA:Inst_VGA|R[1] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA:Inst_VGA|Hcnt[9] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 73
+Warning (13012): Latch VGA:Inst_VGA|R[2] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA:Inst_VGA|Hcnt[9] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 73
+Warning (13012): Latch VGA:Inst_VGA|R[3] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA:Inst_VGA|Hcnt[9] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 73
+Warning (13012): Latch VGA:Inst_VGA|G[0] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA:Inst_VGA|Hcnt[9] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 73
+Warning (13012): Latch VGA:Inst_VGA|G[1] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA:Inst_VGA|Hcnt[9] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 73
+Warning (13012): Latch VGA:Inst_VGA|G[2] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA:Inst_VGA|Hcnt[9] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 73
+Warning (13012): Latch VGA:Inst_VGA|G[3] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA:Inst_VGA|Hcnt[9] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 73
+Warning (13012): Latch VGA:Inst_VGA|B[0] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA:Inst_VGA|Hcnt[9] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 73
+Warning (13012): Latch VGA:Inst_VGA|B[1] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA:Inst_VGA|Hcnt[9] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 73
+Warning (13012): Latch VGA:Inst_VGA|B[2] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA:Inst_VGA|Hcnt[9] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 73
+Warning (13012): Latch VGA:Inst_VGA|B[3] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA:Inst_VGA|Hcnt[9] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 73
+Warning (13012): Latch VGA:Inst_VGA|ball_col[1] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_row[1] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_col[2] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_row[2] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_col[9] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_col[8] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_col[7] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_col[6] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_col[5] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_col[4] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_col[3] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_col[10] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_row[9] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_row[8] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_row[7] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_row[6] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_row[5] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_row[4] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_row[3] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13012): Latch VGA:Inst_VGA|ball_row[10] has unsafe behavior File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/vga.vhd Line: 138
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hcsr04:hcsr04|distance_out_t[7] File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/hcsr04.vhd Line: 18
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "n_sync" is stuck at VCC File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 16
+    Warning (13410): Pin "ov7670_pwdn" is stuck at GND File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 31
+    Warning (13410): Pin "ov7670_reset" is stuck at VCC File: C:/Users/mbatu/Desktop/ELE432_RADAR/src/project.vhd Line: 32
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 27 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 6 node(s), including 0 DDIO, 2 PLL, 0 transceiver and 0 LCELL
+Warning: RST port on the PLL is not properly connected on instance clock_pll:clock_pll_1|clock_pll_0002:clock_pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v Line: 749
+    Info: Must be connected
+Warning: RST port on the PLL is not properly connected on instance clock_pll:clock_pll_1|clock_pll_0002:clock_pll_inst|altera_pll:altera_pll_i|general[2].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v Line: 749
+    Info: Must be connected
+Info (21057): Implemented 2433 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
+    Info (21059): Implemented 59 output pins
+    Info (21060): Implemented 1 bidirectional pins
+    Info (21061): Implemented 2144 logic cells
+    Info (21064): Implemented 208 RAM segments
+    Info (21065): Implemented 2 PLLs
+    Info (21062): Implemented 6 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 135 warnings
+    Info: Peak virtual memory: 4931 megabytes
+    Info: Processing ended: Fri May 26 00:57:16 2023
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:11
+
+

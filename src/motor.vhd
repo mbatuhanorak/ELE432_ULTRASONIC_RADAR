@@ -1,0 +1,160 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.ALL;
+
+entity motor is 
+    generic (
+        wait_count : natural := 1  -- -- wait time for the stepper        
+    );
+    port (
+        clk : in std_logic;
+        rst : in std_logic;
+        --cw  : in std_logic; -- counter clock wise rotation
+        coils : out std_logic_vector(3 downto 0); -- connected to IN1..IN4
+		  step_value : out integer
+    );
+end motor;
+
+architecture rtl of motor is
+  signal count : integer;
+  type mach_states is (s1,s2,s3,s4,ONE_S_WAIT, s5,s6,s7,s8,STEP_CHECK_FRST,STEP_CHECK_SCND,ONE_S_WAIT2);
+  signal m_states : mach_states:=s1;
+  signal step_count : integer:=0;
+  signal step_count_r : integer:=0;
+begin
+
+  step_value<=step_count_r*360/512;
+  
+  motor_p : process (rst , clk)
+  begin
+    if (rst = '0') then 
+	   count <= 0;
+		coils <= (others => '0');
+		m_states <= s1;
+		step_count <= 0;
+		step_count_r <= 0;
+	 elsif (rising_edge(clk)) then 
+	   step_count_r <= step_count; 
+		case m_states is
+	     when s1 => 
+		    if (count = 149_999) then
+			   count <= 0;
+				coils(3) <= '0';
+				m_states <= s2;
+			 else
+		      count <= count + 1;
+		      coils(3) <= '1';
+		      m_states <= s1;		
+			 end if;
+		  when s2 => 
+		    if (count = 149_999) then
+			   count <= 0;
+				coils(2) <= '0';
+				m_states <= s3;
+			 else
+		      count <= count + 1;
+		      coils(2) <= '1';
+		      m_states <= s2;		
+			 end if;
+		  when s3 => 
+		    if (count = 149_999) then
+			   count <= 0;
+				coils(1) <= '0';
+				m_states <= s4;
+			 else
+		      count <= count + 1;
+		      coils(1) <= '1';
+		      m_states <= s3;		
+			 end if;
+		  when s4 => 
+		    if (count = 149_999) then
+			   count <= 0;
+				coils(0) <= '0';
+				m_states <= STEP_CHECK_FRST;
+			 else
+		      count <= count + 1;
+		      coils(0) <= '1';
+		      m_states <= s4;		
+			 end if;
+		  when STEP_CHECK_FRST => 
+		    if (step_count = 511) then 
+			   m_states <= ONE_S_WAIT;
+				step_count <= 0;
+			 else 
+			   step_count <= step_count + 1;
+				m_states   <= s1;
+			 end if;
+		  when ONE_S_WAIT => 
+		    if (count = 99_999_999) then 
+			   count <= 0;
+				m_states <= s5;
+			 else 
+			   count <= count + 1;
+				m_states <= ONE_S_WAIT;
+			 end if;
+		  when s5 => 
+		    if (count = 149_999) then
+			   count <= 0;
+				coils(0) <= '0';
+				m_states <= s6;
+			 else
+		      count <= count + 1;
+		      coils(0) <= '1';
+		      m_states <= s5;		
+			 end if;
+		  when s6 =>
+		    if (count = 149_999) then
+			   count <= 0;
+				coils(1) <= '0';
+				m_states <= s7;
+			 else
+		      count <= count + 1;
+		      coils(1) <= '1';
+		      m_states <= s6;		
+			 end if;
+		  when s7 =>
+		    if (count = 149_999) then
+			   count <= 0;
+				coils(2) <= '0';
+				m_states <= s8;
+			 else
+		      count <= count + 1;
+		      coils(2) <= '1';
+		      m_states <= s7;		
+			 end if;
+		  when s8 =>
+		    if (count = 149_999) then
+			   count <= 0;
+				coils(3) <= '0';
+				m_states <= STEP_CHECK_SCND;
+			 else
+		      count <= count + 1;
+		      coils(3) <= '1';
+		      m_states <= s8;		
+			 end if;
+		  when STEP_CHECK_SCND =>
+		    if (step_count = 511) then 
+			   m_states <= ONE_S_WAIT2;
+				step_count <= 0;
+			 else 
+			   step_count <= step_count + 1;
+				m_states   <= s5;
+			 end if;
+		  when ONE_S_WAIT2 => 
+		    if (count = 99_999_999) then 
+			   count <= 0;
+				m_states <= s1;
+			 else 
+			   count <= count + 1;
+				m_states <= ONE_S_WAIT2;
+			 end if;
+		  when others =>  
+		    count <= 0;
+			 coils <= (others => '0');
+			 m_states <= s1; 
+		end  case;
+	 end if; 
+  end process;
+end architecture;
