@@ -16,7 +16,7 @@ Components:
 
     VGA Monitor: The DE1-SoC board features a VGA output port, allowing the generated data to be displayed on a VGA monitor. The FPGA will process the distance measurements and generate appropriate signals to display the detected objects on the monitor.
 
-    Camera (Optional): If a camera is available, it can be connected to the DE1-SoC board. The FPGA can process the camera feed and display it alongside the detected objects on the VGA monitor.
+    Camera : If a camera is available, it can be connected to the DE1-SoC board. The FPGA can process the camera feed and display it alongside the detected objects on the VGA monitor.
 
 System Operation:
 
@@ -30,7 +30,7 @@ System Operation:
 
     Visualization: The FPGA will generate signals to display the detected objects on the VGA monitor connected to the DE1-SoC board. Each object can be represented by a graphical element, such as a point or shape, indicating its position in the environment.
 
-    Camera Integration (Optional): If a camera is connected to the DE1-SoC board, the FPGA can process the camera feed and display it on the VGA monitor alongside the detected objects. This allows for real-time imaging and visual representation of the objects.
+    Camera Integration : If a camera is connected to the DE1-SoC board, the FPGA can process the camera feed and display it on the VGA monitor alongside the detected objects. This allows for real-time imaging and visual representation of the objects.
 
 By utilizing the DE1-SoC FPGA board, the ultrasonic radar system can effectively detect and display objects in a given environment, providing distance measurements and visual representation. The flexibility of the DE1-SoC allows for easy integration of peripherals and efficient FPGA processing, making it an ideal platform for this project.<br />
 ----------------------------------------------------------------------------------------<br />
