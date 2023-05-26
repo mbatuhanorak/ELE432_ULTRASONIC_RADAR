@@ -17,8 +17,8 @@ entity VGA is
 		     cam_data_i         : IN  STD_LOGIC_VECTOR(11 DOWNTO 0);
 		     activecam_i        : IN	STD_LOGIC;
 		     R,G,B 	            : OUT	STD_LOGIC_VECTOR (7 DOWNTO 0);
-		     distance_radar     : IN  INTEGER;  
-		     motor_location_in : IN  INTEGER; 
+		     distance_in        : IN  INTEGER range 0 to 255 ;  
+		     motor_location_in : IN  INTEGER range 0 to 360 ; 
 			  Nsync              : OUT STD_LOGIC);	
 end VGA;
 
@@ -138,16 +138,16 @@ pixel_row    <= Vcnt;
    process(video)
    begin
 
-     if (distance_radar > 0) then
-	   if distance_radar > 100 then -- if distance is higher than 200cm, show black point at 10x10 pixel
+     if (distance_in > 0) then
+	   if distance_in > 100 then -- if distance is higher than 200cm, show black point at 10x10 pixel
 		 ball_row <= 10;
 		 ball_col <= 10;
 		 R <= (others => '0');
 		 G <= (others => '0');
 		 B <= (others => '0');
 	   else
-		 ball_col <= (distance_radar*(cosrom (motor_location_in))/100)*2+320;---en son çembere göre 175 oldu için değelere maplamek istenilen sayıya bolunuğ çarpılıyor. 
-		 ball_row <= (distance_radar*(sinrom (motor_location_in))/100)*2+240;-- ornek 175 en son cember normalde 175  150 istiyoruz =>>>>175/150 çarp  	
+		 ball_col <= (distance_in*(cosrom (motor_location_in))/100)*2+320;---en son çembere göre 175 oldu için değelere maplamek istenilen sayıya bolunuğ çarpılıyor. 
+		 ball_row <= (distance_in*(sinrom (motor_location_in))/100)*2+240;-- ornek 175 en son cember normalde 175  150 istiyoruz =>>>>175/150 çarp  	
 	   end if;
      end if;
 

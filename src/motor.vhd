@@ -5,15 +5,12 @@ use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.ALL;
 
 entity motor is 
-    generic (
-        wait_count : natural := 1  -- -- wait time for the stepper        
-    );
     port (
         clk : in std_logic;
         rst : in std_logic;
         --cw  : in std_logic; -- counter clock wise rotation
         coils : out std_logic_vector(3 downto 0); -- connected to IN1..IN4
-		  step_value : out integer
+		  motor_location_o : out integer range 0 to 360
     );
 end motor;
 
@@ -25,7 +22,7 @@ architecture rtl of motor is
   signal step_count_r : integer:=0;
 begin
 
-  step_value<=step_count_r*360/512;
+  motor_location_o<=step_count_r*360/512;
   
   motor_p : process (rst , clk)
   begin

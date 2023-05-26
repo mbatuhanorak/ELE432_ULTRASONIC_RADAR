@@ -59,8 +59,8 @@ signal o_led0         : STD_LOGIC;
 signal o_led1         : STD_LOGIC;
 signal o_led2         : STD_LOGIC;
 signal o_led9         : STD_LOGIC;
-signal distance_out_t : INTEGER;
-signal step_value     : INTEGER;
+signal distance_out_w : INTEGER range 0 to 255;
+signal motor_location_w: INTEGER range 0 to 360;
 signal active_cam     : STD_LOGIC;
 signal rez_160x120    : STD_LOGIC;
 signal rez_320x240    : STD_LOGIC;
@@ -127,7 +127,7 @@ port map (
 		o_seg_cms      => o_seg_cms,
 		o_seg_ms       => o_seg_ms,
 		o_seg_dms      => o_seg_dms,
-		distance_out_t => distance_out_t
+		distance_out => distance_out_w
 	 );
 		
 frameb_1 : entity work.frameb
@@ -146,7 +146,7 @@ PORT MAP(
 	    clk        => clk_50mhz,
 	    rst        => '1',
 	    coils      => coils,
-	    step_value => step_value
+	    motor_location_o => motor_location_w
 	);
 
 Inst_debounce:entity work.debounce 
@@ -205,8 +205,8 @@ PORT MAP(
 	    R 	              => red,
 	    G 	              => green,
 	    B 	              => blue,
-	    distance_radar     => distance_out_t,
-	    motor_location_in  => step_value,
+	    distance_in       => distance_out_w,
+	    motor_location_in  => motor_location_w,
 	    Nsync              => n_sync
 	);
 
