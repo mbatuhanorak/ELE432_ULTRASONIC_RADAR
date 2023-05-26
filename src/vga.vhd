@@ -110,7 +110,7 @@ pixel_row    <= Vcnt;
 				end if;
 			end if;
 		end process;
-process(CLK25)
+--process(CLK25)
 --begin
 --  if (rising_edge(CLK25)) then
 --    if counter = 25_000_000 then
