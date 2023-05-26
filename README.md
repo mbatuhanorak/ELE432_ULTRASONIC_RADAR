@@ -32,7 +32,7 @@ System Operation:
 
     Camera Integration (Optional): If a camera is connected to the DE1-SoC board, the FPGA can process the camera feed and display it on the VGA monitor alongside the detected objects. This allows for real-time imaging and visual representation of the objects.
 
-By utilizing the DE1-SoC FPGA board, the ultrasonic radar system can effectively detect and display objects in a given environment, providing distance measurements and visual representation. The flexibility of the DE1-SoC allows for easy integration of peripherals and efficient FPGA processing, making it an ideal platform for this project.
+By utilizing the DE1-SoC FPGA board, the ultrasonic radar system can effectively detect and display objects in a given environment, providing distance measurements and visual representation. The flexibility of the DE1-SoC allows for easy integration of peripherals and efficient FPGA processing, making it an ideal platform for this project.<br />
 --------------------------------------------<br />
 PROBLEM PART<br />
 SOMETIMES THE CAMERA DOES NOT WORK EFFICIENTLY DUE TO THE GPIO CONNECTOR PROBLEM<br />
