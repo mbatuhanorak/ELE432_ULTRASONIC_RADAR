@@ -206,7 +206,7 @@ PORT MAP(
 	    G 	              => green,
 	    B 	              => blue,
 	    distance_radar     => distance_out_t,
-	    sensor_location_in => 1,
+	    motor_location_in  => step_value,
 	    Nsync              => n_sync
 	);
 

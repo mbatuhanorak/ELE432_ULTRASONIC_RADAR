@@ -36,7 +36,6 @@ begin
 		step_count <= 0;
 		step_count_r <= 0;
 	 elsif (rising_edge(clk)) then 
-	   step_count_r <= step_count; 
 		case m_states is
 	     when s1 => 
 		    if (count = 149_999) then
@@ -79,21 +78,22 @@ begin
 		      m_states <= s4;		
 			 end if;
 		  when STEP_CHECK_FRST => 
+		  step_count_r <= step_count; 
 		    if (step_count = 511) then 
-			   m_states <= ONE_S_WAIT;
+			   m_states <= s5;
 				step_count <= 0;
 			 else 
 			   step_count <= step_count + 1;
 				m_states   <= s1;
 			 end if;
-		  when ONE_S_WAIT => 
-		    if (count = 99_999_999) then 
-			   count <= 0;
-				m_states <= s5;
-			 else 
-			   count <= count + 1;
-				m_states <= ONE_S_WAIT;
-			 end if;
+		  --when ONE_S_WAIT => 
+		  --  if (count = 99_999_999) then 
+			--   count <= 0;
+			--	m_states <= s5;
+			-- else 
+			--   count <= count + 1;
+			--	m_states <= ONE_S_WAIT;
+			-- end if;
 		  when s5 => 
 		    if (count = 149_999) then
 			   count <= 0;
@@ -135,21 +135,22 @@ begin
 		      m_states <= s8;		
 			 end if;
 		  when STEP_CHECK_SCND =>
+		   step_count_r <=511- step_count; 
 		    if (step_count = 511) then 
-			   m_states <= ONE_S_WAIT2;
+			   m_states <= s1;
 				step_count <= 0;
 			 else 
 			   step_count <= step_count + 1;
 				m_states   <= s5;
 			 end if;
-		  when ONE_S_WAIT2 => 
-		    if (count = 99_999_999) then 
-			   count <= 0;
-				m_states <= s1;
-			 else 
-			   count <= count + 1;
-				m_states <= ONE_S_WAIT2;
-			 end if;
+		  --when ONE_S_WAIT2 => 
+		  --  if (count = 99_999_999) then 
+			--   count <= 0;
+			--	m_states <= s1;
+			-- else 
+			--   count <= count + 1;
+			--	m_states <= ONE_S_WAIT2;
+			-- end if;
 		  when others =>  
 		    count <= 0;
 			 coils <= (others => '0');

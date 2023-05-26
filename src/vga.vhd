@@ -18,7 +18,7 @@ entity VGA is
 		     activecam_i        : IN	STD_LOGIC;
 		     R,G,B 	            : OUT	STD_LOGIC_VECTOR (7 DOWNTO 0);
 		     distance_radar     : IN  INTEGER;  
-		     sensor_location_in : IN  INTEGER; 
+		     motor_location_in : IN  INTEGER; 
 			  Nsync              : OUT STD_LOGIC);	
 end VGA;
 
@@ -111,43 +111,43 @@ pixel_row    <= Vcnt;
 			end if;
 		end process;
 process(CLK25)
-begin
-  if (rising_edge(CLK25)) then
-    if counter = 25_000_000 then
-      co <= 0;
-    elsif counter = 50_000_000 then
-      co <= 50;
-    elsif counter = 75_000_000 then
-      co <= 120;
-    elsif counter = 100_000_000 then
-      co <= 160;
-    elsif counter = 125_000_000 then
-      co <= 210;
-	 elsif counter = 150_000_000 then
-      co <= 260;
-	 elsif counter = 175_000_000 then
-      co <= 310;	
-	elsif counter = 200_000_000 then
-      co <= 350;	
-      counter <= 0; 	
-    end if;
-      counter <= counter + 1;
-  end if;
-end process;
+--begin
+--  if (rising_edge(CLK25)) then
+--    if counter = 25_000_000 then
+--      co <= 0;
+--    elsif counter = 50_000_000 then
+--      co <= 50;
+--    elsif counter = 75_000_000 then
+--      co <= 120;
+--    elsif counter = 100_000_000 then
+--      co <= 160;
+--    elsif counter = 125_000_000 then
+--      co <= 210;
+--	 elsif counter = 150_000_000 then
+--      co <= 260;
+--	 elsif counter = 175_000_000 then
+--      co <= 310;	
+--	elsif counter = 200_000_000 then
+--      co <= 350;	
+--      counter <= 0; 	
+--    end if;
+--      counter <= counter + 1;
+--  end if;
+--end process;
 		
    process(video)
    begin
 
      if (distance_radar > 0) then
-	   if distance_radar > 125 then -- if distance is higher than 200cm, show black point at 10x10 pixel
+	   if distance_radar > 100 then -- if distance is higher than 200cm, show black point at 10x10 pixel
 		 ball_row <= 10;
 		 ball_col <= 10;
 		 R <= (others => '0');
 		 G <= (others => '0');
 		 B <= (others => '0');
 	   else
-		 ball_col <= (distance_radar*(cosrom (co))/100)*2+320;---en son çembere göre 175 oldu için değelere maplamek istenilen sayıya bolunuğ çarpılıyor. 
-		 ball_row <= (distance_radar*(sinrom (co))/100)*2+240;-- ornek 175 en son cember normalde 175  150 istiyoruz =>>>>175/150 çarp  	
+		 ball_col <= (distance_radar*(cosrom (motor_location_in))/100)*2+320;---en son çembere göre 175 oldu için değelere maplamek istenilen sayıya bolunuğ çarpılıyor. 
+		 ball_row <= (distance_radar*(sinrom (motor_location_in))/100)*2+240;-- ornek 175 en son cember normalde 175  150 istiyoruz =>>>>175/150 çarp  	
 	   end if;
      end if;
 
