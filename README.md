@@ -35,5 +35,5 @@ System Operation:
 By utilizing the DE1-SoC FPGA board, the ultrasonic radar system can effectively detect and display objects in a given environment, providing distance measurements and visual representation. The flexibility of the DE1-SoC allows for easy integration of peripherals and efficient FPGA processing, making it an ideal platform for this project.<br />
 ----------------------------------------------------------------------------------------<br />
 PROBLEM PART<br />
-SOMETIMES THE CAMERA DOES NOT WORK EFFICIENTLY DUE TO THE GPIO CONNECTOR PROBLEM<br />
+Sometimes the camera does not work efficiently due to the gpio connector problem.<br />
 ----------------------------------------------------------------------------------------<br />
