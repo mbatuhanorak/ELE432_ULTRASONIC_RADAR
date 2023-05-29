@@ -1,34 +1,49 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.math_real.all;
+
 entity project is
 port( 
-	   clk	        :	IN  STD_LOGIC;	--pixel clock at frequency of VGA mode being used
-	   h_sync		:	OUT	STD_LOGIC;	--horiztonal sync pulse
-	   v_sync		:	OUT	STD_LOGIC;	--vertical sync pulse
-	   vga_clock    :	OUT	STD_LOGIC;
-	   n_blank		:	OUT	STD_LOGIC;	--direct blacking output to DAC
-	   n_sync		:	OUT	STD_LOGIC; --sync-on-green output to DAC
-	   red			:	OUT	STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
-	   green	    :	OUT	STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
-	   blue	        :	OUT	STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0'); --blue magnitude output to DAC
-	   sonar_echo   : in std_logic;
-	   coils        : out std_logic_vector(3 downto 0);
-		 config_finished : out STD_LOGIC;
-       ov7670_pclk  : in    STD_LOGIC;
-       ov7670_xclk  : out   STD_LOGIC;
-       ov7670_vsync : in    STD_LOGIC;
-       ov7670_href  : in    STD_LOGIC;
-       ov7670_data  : in    STD_LOGIC_VECTOR(7 downto 0);
-       ov7670_sioc  : out   STD_LOGIC;
-       ov7670_siod  : inout STD_LOGIC;
-       ov7670_pwdn  : out   STD_LOGIC;
-       ov7670_reset : out   STD_LOGIC;
-       sonar_trig     : out std_logic;
-       o_seg_cms      : out std_logic_vector(6 downto 0);
-       o_seg_ms       : out std_logic_vector(6 downto 0);
-       o_seg_dms      : out std_logic_vector(6 downto 0)
-
+	   clk	      :	IN   STD_LOGIC;
+		rst			:  IN   STD_LOGIC;
+------VGA ------------------------------------------------------------------		
+	   h_sync		:	OUT  STD_LOGIC;	--horiztonal sync pulse
+	   v_sync		:	OUT  STD_LOGIC;	--vertical sync pulse
+	   vga_clock   :	OUT  STD_LOGIC;   --pixel clock at frequency of VGA mode being used
+	   n_blank		:	OUT  STD_LOGIC;	--direct blacking output to DAC
+	   n_sync		:	OUT  STD_LOGIC;   --sync-on-green output to DAC
+	   red			:	OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
+	   green	      :	OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
+	   blue	      :	OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0'); --blue magnitude output to DAC
+----------------------------------------------------------------------------
+--------rs232 converter-----------------------------------
+      rx_i          :   in STD_LOGIC;	
+		tx_n			:   out STD_LOGIC;	
+------------------------------------------------------
+				
+------motor(28 BYJ-48) ------------------------------------------------------ 		
+	   coils       : out   std_logic_vector(3 downto 0);--for the motor
+------camera (ov7670)-------------------------------------------------------	
+      ov7670_pclk : in    STD_LOGIC;
+      ov7670_xclk : out   STD_LOGIC;
+      ov7670_vsync: in    STD_LOGIC;
+      ov7670_href : in    STD_LOGIC;
+      ov7670_data : in    STD_LOGIC_VECTOR(7 downto 0);
+      ov7670_sioc : out   STD_LOGIC;
+      ov7670_siod : inout STD_LOGIC;
+      ov7670_pwdn : out   STD_LOGIC;
+      ov7670_reset: out   STD_LOGIC;
+----------------------------------------------------------------------------	
+------distance (hcsr4)------------------------------------------------------ 	
+		sonar_echo  : in    std_logic;
+      sonar_trig  : out   std_logic;
+      o_seg_cms   : out   std_logic_vector(6 downto 0);--seven segment for distance
+      o_seg_ms    : out   std_logic_vector(6 downto 0);--seven segment for distance
+      o_seg_dms   : out   std_logic_vector(6 downto 0) --seven segment for distance
+----------------------------------------------------------------------------
 	 ); -- servo motor pwm
 end entity;
 
@@ -50,11 +65,12 @@ signal o_led0         : STD_LOGIC;
 signal o_led1         : STD_LOGIC;
 signal o_led2         : STD_LOGIC;
 signal o_led9         : STD_LOGIC;
-signal distance_out_t : INTEGER;
-signal step_value     : INTEGER;
+signal distance_out_w : INTEGER range 0 to 255;
+signal motor_location_w: INTEGER range 0 to 360;
 signal active_cam     : STD_LOGIC;
-signal rez_160x120    : STD_LOGIC;
-signal rez_320x240    : STD_LOGIC;
+signal resol            : STD_LOGIC_VECTOR(1 downto 0);
+signal config_finished: STD_LOGIC;
+
 signal size_select    : STD_LOGIC_VECTOR(1 downto 0);
 signal rd_addr,wr_addr: STD_LOGIC_VECTOR(16 downto 0);
 signal wraddress      : STD_LOGIC_VECTOR(18 downto 0);
@@ -63,21 +79,37 @@ signal rdaddress      : std_logic_vector(18 downto 0);
 signal rddata         : std_logic_vector(11 downto 0);
 signal wren           : STD_LOGIC_VECTOR(0 downto 0);
 signal resend         : STD_LOGIC;	
+signal rx_n_W         : STD_LOGIC;	
+
+	
+
+
+
+component clock_pll
+	port (
+		refclk   : in  std_logic := '0'; --  refclk.clk
+		rst      : in  std_logic := '0'; --   reset.reset
+		outclk_0 : out std_logic;        -- outclk0.clk
+		outclk_1 : out std_logic;        -- outclk1.clk
+		outclk_2 : out std_logic         -- outclk2.clk
+	);
+	end component;	
 	
 begin
 
 h_sync      <= h_sync_w;
 v_sync      <= v_sync_w;
 vga_clock   <=clk_25mhz;
-size_select <= '1' & '0';
+rx_n_W		<= not rx_i    ;
+resol       <= '1' &'0';
 
-with size_select select 
+with resol select 
 rd_addr <= 
     rdaddress(18 downto 2) when "00",
     rdaddress(16 downto 0) when "01",
     rdaddress(16 downto 0) when "10",
     rdaddress(16 downto 0) when "11";
-with size_select select 
+with resol select 
 wr_addr <= 
     wraddress(18 downto 2) when "00",
     wraddress(16 downto 0) when "01",
@@ -85,7 +117,7 @@ wr_addr <=
     wraddress(16 downto 0) when "11";
 
 
-clock_pll_1 : entity work.clock_pll
+clock_pll_1 :clock_pll
 PORT MAP(
 		refclk   => clk,
 		rst      => '0',
@@ -93,42 +125,24 @@ PORT MAP(
 		outclk_1 => clk_1mhz,
 		outclk_2 => clk_50mhz
 	);
-
-vga : entity work.vga_controller	
-PORT MAP(
-		vga_clock	=>clk_25mhz,	--pixel clock at frequency of VGA mode being used
-		reset_n		=>'1',		--active low asycnchronous reset
-		h_sync		=>h_sync_w	,	--horiztonal sync pulse
-		v_sync		=>v_sync_w	,	--vertical sync pulse
-		active_cam  =>active_cam,
-		disp_ena	   =>disp_ena,		--display enable ('1' = display time, '0' = blanking time)
-		column		=>column	,--horizontal pixel coordinate
-		row			=>row		,--vertical pixel coordinate
-		n_blank		=>n_blank,		--direct blacking output to DAC
-		n_sync		=>n_sync	  --sync-on-green output to DAC
-	 ); 
-		
-hw_image: entity work.hw_image_generator 
-PORT map (
-		disp_ena	       =>disp_ena , 
-		row			    =>row      ,
-		column		    =>column   ,
-		step_value      =>step_value,
-		active_cam      =>active_cam,
-		Din             =>rddata,
-		distance_out_t  => distance_out_t,
-		red			    =>red   ,
-		green			    =>green	,	
-		blue			    =>blue	
-	 );		
-
-
-
+	
+sendtx:entity work.send_tx
+  port map(
+    clk          =>clk_50mhz,
+	 distance_out =>distance_out_w,
+	 rst			=>rst,
+	 motor_location_i =>motor_location_w,
+	 tx_n				  =>tx_n
+	 
+  );
+	
+	
+	
 hcsr04 : entity work.hcsr04
 port map (
 		clk_50         => clk_50mhz,
-		reset_n        => '1',
-		i_fsm          => fsm,
+		reset_n        => rst,
+		i_fsm          => "10",
 		sonar_echo     => sonar_echo,
 		sonar_trig     => sonar_trig,
 		o_led0         => o_led0,
@@ -138,7 +152,7 @@ port map (
 		o_seg_cms      => o_seg_cms,
 		o_seg_ms       => o_seg_ms,
 		o_seg_dms      => o_seg_dms,
-		distance_out_t => distance_out_t
+		distance_out => distance_out_w
 	 );
 		
 frameb_1 : entity work.frameb
@@ -155,9 +169,10 @@ PORT MAP(
 motor_1 : entity work.motor
 PORT MAP(
 	    clk        => clk_50mhz,
-	    rst        => '1',
+		 rx_i_s     => rx_n_w,
+	    rst        => rst,
 	    coils      => coils,
-	    step_value => step_value
+	    motor_location_o => motor_location_w
 	);
 
 Inst_debounce:entity work.debounce 
@@ -182,8 +197,8 @@ PORT MAP(
 Inst_ov7670_capture: entity work.ov7670_capture 
 PORT MAP(
 	    pclk         => ov7670_pclk,
-        rez_160x120 => '1',
-        rez_320x240 => '0',
+        rez_160x120 => resol(1),
+        rez_320x240 => resol(0),
 	    vsync        => ov7670_vsync,
 	    href         => ov7670_href,
 	    d            => ov7670_data,
@@ -195,14 +210,31 @@ PORT MAP(
 Inst_Address_Generator:entity work.Address_Generator 
 PORT MAP(
 	    CLK25        => clk_25mhz,
-        rez_160x120 => '1',
-        rez_320x240 => '0',
+        rez_160x120 => resol(1),
+        rez_320x240 => resol(0),
 	    enable       => active_cam,
         vsync       => v_sync_w,
 	    address      => rdaddress  
 	 );
 
-
+Inst_VGA:entity work.VGA 
+PORT MAP(
+	    CLK25              => clk_25mhz,
+       rez_160x120        => resol(1),
+       rez_320x240        => resol(0),
+	    Hsync              => h_sync_w,
+	    Vsync              => v_sync_w,
+	    Nblank             => n_blank,
+       activecam_o        => active_cam,
+       cam_data_i         => rddata,
+       activecam_i        => active_cam,
+	    R 	              => red,
+	    G 	              => green,
+	    B 	              => blue,
+	    distance_in       => distance_out_w,
+	    motor_location_in  => motor_location_w,
+	    Nsync              => n_sync
+	);
 
 
 

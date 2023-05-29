@@ -1,5 +1,5 @@
 Flow report for Proje
-Fri May 26 01:00:14 2023
+Mon May 29 22:57:32 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,19 +41,19 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Fri May 26 01:00:14 2023       ;
+; Flow Status                     ; Successful - Mon May 29 22:57:32 2023       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; Proje                                       ;
 ; Top-level Entity Name           ; project                                     ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 1,139 / 32,070 ( 4 % )                      ;
-; Total registers                 ; 416                                         ;
-; Total pins                      ; 73 / 457 ( 16 % )                           ;
+; Logic utilization (in ALMs)     ; 1,294 / 32,070 ( 4 % )                      ;
+; Total registers                 ; 499                                         ;
+; Total pins                      ; 76 / 457 ( 17 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 1,576,960 / 4,065,280 ( 39 % )              ;
-; Total DSP Blocks                ; 6 / 87 ( 7 % )                              ;
+; Total DSP Blocks                ; 8 / 87 ( 9 % )                              ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/26/2023 00:57:00 ;
+; Start date & time ; 05/29/2023 22:52:54 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Proje               ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 67001789802593.168505182001332         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 67001789802593.168538997318244         ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -107,12 +107,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4931 MB             ; 00:00:11                           ;
-; Fitter               ; 00:02:24     ; 1.2                     ; 6827 MB             ; 00:01:27                           ;
-; Assembler            ; 00:00:12     ; 1.0                     ; 4899 MB             ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:14     ; 2.4                     ; 5280 MB             ; 00:00:10                           ;
-; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4863 MB             ; 00:00:01                           ;
-; Total                ; 00:03:08     ; --                      ; --                  ; 00:01:54                           ;
+; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 4940 MB             ; 00:00:10                           ;
+; Fitter               ; 00:03:52     ; 1.1                     ; 6843 MB             ; 00:01:58                           ;
+; Assembler            ; 00:00:09     ; 1.0                     ; 4902 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:14     ; 2.4                     ; 5290 MB             ; 00:00:09                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4870 MB             ; 00:00:01                           ;
+; Total                ; 00:04:32     ; --                      ; --                  ; 00:02:22                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

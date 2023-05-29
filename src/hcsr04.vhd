@@ -58,6 +58,7 @@ distance_out<=to_integer(output_ones) + 10*to_integer(output_tens) + 100*to_inte
     begin
         if reset_n = '0' then
             state                       <= clear_state;
+				
         elsif (rising_edge(clk_50)) then
 
             case state is

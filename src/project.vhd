@@ -8,6 +8,8 @@ use IEEE.math_real.all;
 entity project is
 port( 
 	   clk	      :	IN   STD_LOGIC;
+		rst			:  IN   STD_LOGIC;
+----------------------------------------------------------------------------
 ------VGA ------------------------------------------------------------------		
 	   h_sync		:	OUT  STD_LOGIC;	--horiztonal sync pulse
 	   v_sync		:	OUT  STD_LOGIC;	--vertical sync pulse
@@ -17,7 +19,12 @@ port(
 	   red			:	OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
 	   green	      :	OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
 	   blue	      :	OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0'); --blue magnitude output to DAC
-----------------------------------------------------------------------------				
+----------------------------------------------------------------------------
+--------rs232 converter-----------------------------------
+      rx_n        :   in STD_LOGIC;	
+		tx_n			:   out STD_LOGIC;	
+------------------------------------------------------
+				
 ------motor(28 BYJ-48) ------------------------------------------------------ 		
 	   coils       : out   std_logic_vector(3 downto 0);--for the motor
 ------camera (ov7670)-------------------------------------------------------	
@@ -62,8 +69,7 @@ signal o_led9         : STD_LOGIC;
 signal distance_out_w : INTEGER range 0 to 255;
 signal motor_location_w: INTEGER range 0 to 360;
 signal active_cam     : STD_LOGIC;
-signal rez_160x120    : STD_LOGIC;
-signal rez_320x240    : STD_LOGIC;
+signal resol            : STD_LOGIC_VECTOR(1 downto 0);
 signal config_finished: STD_LOGIC;
 
 signal size_select    : STD_LOGIC_VECTOR(1 downto 0);
@@ -74,6 +80,12 @@ signal rdaddress      : std_logic_vector(18 downto 0);
 signal rddata         : std_logic_vector(11 downto 0);
 signal wren           : STD_LOGIC_VECTOR(0 downto 0);
 signal resend         : STD_LOGIC;	
+signal rx_n_W         : STD_LOGIC;	
+
+	
+
+
+
 component clock_pll
 	port (
 		refclk   : in  std_logic := '0'; --  refclk.clk
@@ -89,7 +101,8 @@ begin
 h_sync      <= h_sync_w;
 v_sync      <= v_sync_w;
 vga_clock   <=clk_25mhz;
-size_select <= '1' & '0';
+rx_n_W		<= not rx_n    ;
+size_select <=resol;
 
 with size_select select 
 rd_addr <= 
@@ -113,10 +126,23 @@ PORT MAP(
 		outclk_1 => clk_1mhz,
 		outclk_2 => clk_50mhz
 	);
+	
+sendtx:entity work.send_tx
+  port map(
+    clk          =>clk_50mhz,
+	 distance_out =>distance_out_w,
+	 rst			=>rst,
+	 motor_location_i =>motor_location_w,
+	 tx_n				  =>tx_n
+	 
+  );
+	
+	
+	
 hcsr04 : entity work.hcsr04
 port map (
 		clk_50         => clk_50mhz,
-		reset_n        => '1',
+		reset_n        => rst,
 		i_fsm          => "10",
 		sonar_echo     => sonar_echo,
 		sonar_trig     => sonar_trig,
@@ -144,7 +170,9 @@ PORT MAP(
 motor_1 : entity work.motor
 PORT MAP(
 	    clk        => clk_50mhz,
-	    rst        => '1',
+		 rx_i_s     => rx_n_w,
+		 resol      => resol,
+	    rst        => rst,
 	    coils      => coils,
 	    motor_location_o => motor_location_w
 	);
@@ -171,8 +199,8 @@ PORT MAP(
 Inst_ov7670_capture: entity work.ov7670_capture 
 PORT MAP(
 	    pclk         => ov7670_pclk,
-        rez_160x120 => '1',
-        rez_320x240 => '0',
+        rez_160x120 => resol(1),
+        rez_320x240 => resol(0),
 	    vsync        => ov7670_vsync,
 	    href         => ov7670_href,
 	    d            => ov7670_data,
@@ -184,8 +212,8 @@ PORT MAP(
 Inst_Address_Generator:entity work.Address_Generator 
 PORT MAP(
 	    CLK25        => clk_25mhz,
-        rez_160x120 => '1',
-        rez_320x240 => '0',
+        rez_160x120 => resol(1),
+        rez_320x240 => resol(0),
 	    enable       => active_cam,
         vsync       => v_sync_w,
 	    address      => rdaddress  
@@ -194,8 +222,8 @@ PORT MAP(
 Inst_VGA:entity work.VGA 
 PORT MAP(
 	    CLK25              => clk_25mhz,
-       rez_160x120        => '1',
-       rez_320x240        => '0',
+       rez_160x120        => resol(1),
+       rez_320x240        => resol(0),
 	    Hsync              => h_sync_w,
 	    Vsync              => v_sync_w,
 	    Nblank             => n_blank,
