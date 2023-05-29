@@ -1,6 +1,6 @@
 # ELE432_ULTRASONIC_RADAR
 DE1-SOC RADAR PROJECT<br />
-ULTRASONIC RADAR <br />
+ULTRASONIC RADAR<br />
 --------Project Partners----------------------------------------------------------------<br />
 --MEHMET BATUHAN ORAK<br />--ABDULLAH FURKAN KAYA<br />--BURAK TALHA GUCLU<br />--MUHAMMED FATİH TEKİN<br />
 ----------------------------------------------------------------------------------------<br />
