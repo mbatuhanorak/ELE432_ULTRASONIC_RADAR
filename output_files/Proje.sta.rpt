@@ -1,5 +1,5 @@
 Timing Analyzer report for Proje
-Fri May 26 01:00:11 2023
+Mon May 29 22:57:29 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -105,11 +105,11 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  30.2%      ;
-;     Processor 3            ;  28.5%      ;
-;     Processor 4            ;  28.5%      ;
-;     Processor 5            ;  28.3%      ;
-;     Processor 6            ;  28.3%      ;
+;     Processor 2            ;  29.7%      ;
+;     Processor 3            ;  28.7%      ;
+;     Processor 4            ;  28.6%      ;
+;     Processor 5            ;  28.4%      ;
+;     Processor 6            ;  28.4%      ;
 +----------------------------+-------------+
 
 
@@ -132,10 +132,10 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+-----------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                        ; Note ;
 +------------+-----------------+-----------------------------------------------------------------------------------+------+
-; 8.1 MHz    ; 8.1 MHz         ; hcsr04:hcsr04|output_hunds[0]                                                     ;      ;
-; 94.14 MHz  ; 94.14 MHz       ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
-; 178.22 MHz ; 178.22 MHz      ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
-; 203.75 MHz ; 203.75 MHz      ; ov7670_pclk                                                                       ;      ;
+; 8.02 MHz   ; 8.02 MHz        ; hcsr04:hcsr04|output_hunds[0]                                                     ;      ;
+; 61.55 MHz  ; 61.55 MHz       ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 108.01 MHz ; 108.01 MHz      ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 177.46 MHz ; 177.46 MHz      ; ov7670_pclk                                                                       ;      ;
 +------------+-----------------+-----------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -151,10 +151,10 @@ HTML report is unavailable in plain text report export.
 +-----------------------------------------------------------------------------------+---------+---------------+
 ; Clock                                                                             ; Slack   ; End Point TNS ;
 +-----------------------------------------------------------------------------------+---------+---------------+
-; hcsr04:hcsr04|output_hunds[0]                                                     ; -69.857 ; -1600.281     ;
-; ov7670_pclk                                                                       ; -3.493  ; -12689.877    ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 14.389  ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 29.378  ; 0.000         ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; -78.574 ; -1726.832     ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; -8.756  ; -61.913       ;
+; ov7670_pclk                                                                       ; -5.995  ; -22004.725    ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 9.431   ; 0.000         ;
 +-----------------------------------------------------------------------------------+---------+---------------+
 
 
@@ -163,10 +163,10 @@ HTML report is unavailable in plain text report export.
 +-----------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                             ; Slack ; End Point TNS ;
 +-----------------------------------------------------------------------------------+-------+---------------+
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.245 ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.320 ; 0.000         ;
-; ov7670_pclk                                                                       ; 0.382 ; 0.000         ;
-; hcsr04:hcsr04|output_hunds[0]                                                     ; 1.467 ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.318 ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.366 ; 0.000         ;
+; ov7670_pclk                                                                       ; 0.374 ; 0.000         ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; 1.704 ; 0.000         ;
 +-----------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -187,12 +187,12 @@ No paths to report.
 +-----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                             ; Slack  ; End Point TNS ;
 +-----------------------------------------------------------------------------------+--------+---------------+
-; hcsr04:hcsr04|output_hunds[0]                                                     ; -2.995 ; -325.226      ;
-; ov7670_pclk                                                                       ; -2.174 ; -18415.015    ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; -2.713 ; -294.372      ;
+; ov7670_pclk                                                                       ; -2.174 ; -18405.726    ;
 ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.250  ; 0.000         ;
 ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 8.780  ; 0.000         ;
 ; clk                                                                               ; 9.670  ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.770 ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.768 ; 0.000         ;
 +-----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -208,10 +208,10 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +------------+-----------------+-----------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                        ; Note ;
 +------------+-----------------+-----------------------------------------------------------------------------------+------+
-; 7.77 MHz   ; 7.77 MHz        ; hcsr04:hcsr04|output_hunds[0]                                                     ;      ;
-; 98.68 MHz  ; 98.68 MHz       ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
-; 178.48 MHz ; 178.48 MHz      ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
-; 210.79 MHz ; 210.79 MHz      ; ov7670_pclk                                                                       ;      ;
+; 7.73 MHz   ; 7.73 MHz        ; hcsr04:hcsr04|output_hunds[0]                                                     ;      ;
+; 62.74 MHz  ; 62.74 MHz       ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 113.12 MHz ; 113.12 MHz      ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 184.74 MHz ; 184.74 MHz      ; ov7670_pclk                                                                       ;      ;
 +------------+-----------------+-----------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -221,10 +221,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------------------------------------------------+---------+---------------+
 ; Clock                                                                             ; Slack   ; End Point TNS ;
 +-----------------------------------------------------------------------------------+---------+---------------+
-; hcsr04:hcsr04|output_hunds[0]                                                     ; -72.465 ; -1647.320     ;
-; ov7670_pclk                                                                       ; -3.355  ; -11756.508    ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 14.397  ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 29.866  ; 0.000         ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; -80.967 ; -1770.579     ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; -8.330  ; -58.358       ;
+; ov7670_pclk                                                                       ; -5.902  ; -21193.004    ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 9.905   ; 0.000         ;
 +-----------------------------------------------------------------------------------+---------+---------------+
 
 
@@ -233,10 +233,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                             ; Slack ; End Point TNS ;
 +-----------------------------------------------------------------------------------+-------+---------------+
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.229 ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.304 ; 0.000         ;
-; ov7670_pclk                                                                       ; 0.353 ; 0.000         ;
-; hcsr04:hcsr04|output_hunds[0]                                                     ; 1.284 ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.298 ; 0.000         ;
+; ov7670_pclk                                                                       ; 0.362 ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.369 ; 0.000         ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; 1.682 ; 0.000         ;
 +-----------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -257,12 +257,12 @@ No paths to report.
 +-----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                             ; Slack  ; End Point TNS ;
 +-----------------------------------------------------------------------------------+--------+---------------+
-; hcsr04:hcsr04|output_hunds[0]                                                     ; -3.053 ; -334.026      ;
-; ov7670_pclk                                                                       ; -2.174 ; -18377.778    ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; -2.755 ; -302.666      ;
+; ov7670_pclk                                                                       ; -2.174 ; -18392.509    ;
 ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.250  ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 8.766  ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 8.767  ; 0.000         ;
 ; clk                                                                               ; 9.673  ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.751 ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.750 ; 0.000         ;
 +-----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -278,10 +278,10 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------------------------------------------------------+---------+---------------+
 ; Clock                                                                             ; Slack   ; End Point TNS ;
 +-----------------------------------------------------------------------------------+---------+---------------+
-; hcsr04:hcsr04|output_hunds[0]                                                     ; -36.128 ; -834.307      ;
-; ov7670_pclk                                                                       ; -2.151  ; -6264.823     ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 16.662  ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 32.297  ; 0.000         ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; -41.112 ; -914.823      ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; -6.551  ; -45.769       ;
+; ov7670_pclk                                                                       ; -3.402  ; -11599.816    ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 12.829  ; 0.000         ;
 +-----------------------------------------------------------------------------------+---------+---------------+
 
 
@@ -290,10 +290,10 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                             ; Slack ; End Point TNS ;
 +-----------------------------------------------------------------------------------+-------+---------------+
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.138 ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.181 ; 0.000         ;
-; ov7670_pclk                                                                       ; 0.183 ; 0.000         ;
-; hcsr04:hcsr04|output_hunds[0]                                                     ; 1.024 ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.178 ; 0.000         ;
+; ov7670_pclk                                                                       ; 0.197 ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.198 ; 0.000         ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; 1.200 ; 0.000         ;
 +-----------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -314,10 +314,10 @@ No paths to report.
 +-----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                             ; Slack  ; End Point TNS ;
 +-----------------------------------------------------------------------------------+--------+---------------+
-; ov7670_pclk                                                                       ; -2.174 ; -20109.767    ;
-; hcsr04:hcsr04|output_hunds[0]                                                     ; -1.526 ; -135.375      ;
+; ov7670_pclk                                                                       ; -2.174 ; -20201.062    ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; -1.321 ; -109.681      ;
 ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.250  ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 8.893  ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 8.894  ; 0.000         ;
 ; clk                                                                               ; 9.336  ; 0.000         ;
 ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.885 ; 0.000         ;
 +-----------------------------------------------------------------------------------+--------+---------------+
@@ -335,10 +335,10 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------------------------------------------------------+---------+---------------+
 ; Clock                                                                             ; Slack   ; End Point TNS ;
 +-----------------------------------------------------------------------------------+---------+---------------+
-; hcsr04:hcsr04|output_hunds[0]                                                     ; -34.564 ; -795.730      ;
-; ov7670_pclk                                                                       ; -1.746  ; -4862.123     ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 16.871  ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 33.321  ; 0.000         ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; -39.056 ; -862.936      ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; -5.423  ; -37.610       ;
+; ov7670_pclk                                                                       ; -3.031  ; -9989.183     ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 13.746  ; 0.000         ;
 +-----------------------------------------------------------------------------------+---------+---------------+
 
 
@@ -347,10 +347,10 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                             ; Slack ; End Point TNS ;
 +-----------------------------------------------------------------------------------+-------+---------------+
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.126 ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.171 ; 0.000         ;
-; ov7670_pclk                                                                       ; 0.175 ; 0.000         ;
-; hcsr04:hcsr04|output_hunds[0]                                                     ; 0.909 ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.169 ; 0.000         ;
+; ov7670_pclk                                                                       ; 0.186 ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.189 ; 0.000         ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; 1.195 ; 0.000         ;
 +-----------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -371,12 +371,12 @@ No paths to report.
 +-----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                             ; Slack  ; End Point TNS ;
 +-----------------------------------------------------------------------------------+--------+---------------+
-; ov7670_pclk                                                                       ; -2.174 ; -20453.251    ;
-; hcsr04:hcsr04|output_hunds[0]                                                     ; -1.371 ; -125.094      ;
+; ov7670_pclk                                                                       ; -2.174 ; -20526.566    ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; -1.176 ; -100.851      ;
 ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.250  ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 8.888  ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 8.889  ; 0.000         ;
 ; clk                                                                               ; 9.286  ; 0.000         ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.885 ; 0.000         ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.883 ; 0.000         ;
 +-----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -392,20 +392,20 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +------------------------------------------------------------------------------------+------------+-------+----------+---------+---------------------+
 ; Clock                                                                              ; Setup      ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------------------------------------------------------------------------+------------+-------+----------+---------+---------------------+
-; Worst-case Slack                                                                   ; -72.465    ; 0.126 ; N/A      ; N/A     ; -3.053              ;
+; Worst-case Slack                                                                   ; -80.967    ; 0.169 ; N/A      ; N/A     ; -2.755              ;
 ;  clk                                                                               ; N/A        ; N/A   ; N/A      ; N/A     ; 9.286               ;
 ;  clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; N/A        ; N/A   ; N/A      ; N/A     ; 1.250               ;
-;  clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 29.378     ; 0.126 ; N/A      ; N/A     ; 18.751              ;
-;  clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 14.389     ; 0.171 ; N/A      ; N/A     ; 8.766               ;
-;  hcsr04:hcsr04|output_hunds[0]                                                     ; -72.465    ; 0.909 ; N/A      ; N/A     ; -3.053              ;
-;  ov7670_pclk                                                                       ; -3.493     ; 0.175 ; N/A      ; N/A     ; -2.174              ;
-; Design-wide TNS                                                                    ; -14290.158 ; 0.0   ; 0.0      ; 0.0     ; -20578.345          ;
+;  clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 9.431      ; 0.189 ; N/A      ; N/A     ; 18.750              ;
+;  clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; -8.756     ; 0.169 ; N/A      ; N/A     ; 8.767               ;
+;  hcsr04:hcsr04|output_hunds[0]                                                     ; -80.967    ; 1.195 ; N/A      ; N/A     ; -2.755              ;
+;  ov7670_pclk                                                                       ; -5.995     ; 0.186 ; N/A      ; N/A     ; -2.174              ;
+; Design-wide TNS                                                                    ; -23793.47  ; 0.0   ; 0.0      ; 0.0     ; -20627.417          ;
 ;  clk                                                                               ; N/A        ; N/A   ; N/A      ; N/A     ; 0.000               ;
 ;  clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; N/A        ; N/A   ; N/A      ; N/A     ; 0.000               ;
 ;  clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.000      ; 0.000 ; N/A      ; N/A     ; 0.000               ;
-;  clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.000      ; 0.000 ; N/A      ; N/A     ; 0.000               ;
-;  hcsr04:hcsr04|output_hunds[0]                                                     ; -1647.320  ; 0.000 ; N/A      ; N/A     ; -334.026            ;
-;  ov7670_pclk                                                                       ; -12689.877 ; 0.000 ; N/A      ; N/A     ; -20453.251          ;
+;  clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; -61.913    ; 0.000 ; N/A      ; N/A     ; 0.000               ;
+;  hcsr04:hcsr04|output_hunds[0]                                                     ; -1770.579  ; 0.000 ; N/A      ; N/A     ; -302.666            ;
+;  ov7670_pclk                                                                       ; -22004.725 ; 0.000 ; N/A      ; N/A     ; -20526.566          ;
 +------------------------------------------------------------------------------------+------------+-------+----------+---------+---------------------+
 
 
@@ -443,6 +443,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; blue[5]      ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; blue[6]      ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; blue[7]      ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; tx_n         ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; coils[0]     ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; coils[1]     ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; coils[2]     ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
@@ -484,6 +485,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +----------------+--------------+-----------------+-----------------+
 ; ov7670_siod    ; 3.3-V LVCMOS ; 2640 ps         ; 2640 ps         ;
 ; clk            ; 3.3-V LVCMOS ; 2640 ps         ; 2640 ps         ;
+; rst            ; 3.3-V LVCMOS ; 2640 ps         ; 2640 ps         ;
 ; ov7670_pclk    ; 3.3-V LVCMOS ; 2640 ps         ; 2640 ps         ;
 ; sonar_echo     ; 3.3-V LVCMOS ; 2640 ps         ; 2640 ps         ;
 ; ov7670_vsync   ; 3.3-V LVCMOS ; 2640 ps         ; 2640 ps         ;
@@ -496,6 +498,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; ov7670_data[5] ; 3.3-V LVCMOS ; 2640 ps         ; 2640 ps         ;
 ; ov7670_data[6] ; 3.3-V LVCMOS ; 2640 ps         ; 2640 ps         ;
 ; ov7670_data[0] ; 3.3-V LVCMOS ; 2640 ps         ; 2640 ps         ;
+; rx_n           ; 3.3-V LVCMOS ; 2640 ps         ; 2640 ps         ;
 +----------------+--------------+-----------------+-----------------+
 
 
@@ -533,6 +536,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; blue[5]      ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.5e-07 V                    ; 3.14 V              ; -0.195 V            ; 0.158 V                              ; 0.394 V                              ; 4.46e-10 s                  ; 1.64e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.5e-07 V                   ; 3.14 V             ; -0.195 V           ; 0.158 V                             ; 0.394 V                             ; 4.46e-10 s                 ; 1.64e-10 s                 ; Yes                       ; No                        ;
 ; blue[6]      ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.62e-07 V                   ; 3.1 V               ; -0.153 V            ; 0.035 V                              ; 0.31 V                               ; 4.23e-10 s                  ; 1.59e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 2.62e-07 V                  ; 3.1 V              ; -0.153 V           ; 0.035 V                             ; 0.31 V                              ; 4.23e-10 s                 ; 1.59e-10 s                 ; Yes                       ; No                        ;
 ; blue[7]      ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.62e-07 V                   ; 3.1 V               ; -0.153 V            ; 0.035 V                              ; 0.31 V                               ; 4.23e-10 s                  ; 1.59e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 2.62e-07 V                  ; 3.1 V              ; -0.153 V           ; 0.035 V                             ; 0.31 V                              ; 4.23e-10 s                 ; 1.59e-10 s                 ; Yes                       ; No                        ;
+; tx_n         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
 ; coils[0]     ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.5e-07 V                    ; 3.14 V              ; -0.195 V            ; 0.158 V                              ; 0.394 V                              ; 4.46e-10 s                  ; 1.64e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.5e-07 V                   ; 3.14 V             ; -0.195 V           ; 0.158 V                             ; 0.394 V                             ; 4.46e-10 s                 ; 1.64e-10 s                 ; Yes                       ; No                        ;
 ; coils[1]     ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.5e-07 V                    ; 3.14 V              ; -0.195 V            ; 0.158 V                              ; 0.394 V                              ; 4.46e-10 s                  ; 1.64e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.5e-07 V                   ; 3.14 V             ; -0.195 V           ; 0.158 V                             ; 0.394 V                             ; 4.46e-10 s                 ; 1.64e-10 s                 ; Yes                       ; No                        ;
 ; coils[2]     ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.62e-07 V                   ; 3.1 V               ; -0.153 V            ; 0.035 V                              ; 0.31 V                               ; 4.23e-10 s                  ; 1.59e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 2.62e-07 V                  ; 3.1 V              ; -0.153 V           ; 0.035 V                             ; 0.31 V                              ; 4.23e-10 s                 ; 1.59e-10 s                 ; Yes                       ; No                        ;
@@ -601,6 +605,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; blue[5]      ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.32e-05 V                   ; 3.09 V              ; -0.11 V             ; 0.031 V                              ; 0.155 V                              ; 5.43e-10 s                  ; 3.14e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.32e-05 V                  ; 3.09 V             ; -0.11 V            ; 0.031 V                             ; 0.155 V                             ; 5.43e-10 s                 ; 3.14e-10 s                 ; Yes                       ; Yes                       ;
 ; blue[6]      ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.61e-05 V                   ; 3.09 V              ; -0.0638 V           ; 0.034 V                              ; 0.099 V                              ; 5.12e-10 s                  ; 2.97e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 2.61e-05 V                  ; 3.09 V             ; -0.0638 V          ; 0.034 V                             ; 0.099 V                             ; 5.12e-10 s                 ; 2.97e-10 s                 ; Yes                       ; Yes                       ;
 ; blue[7]      ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.61e-05 V                   ; 3.09 V              ; -0.0638 V           ; 0.034 V                              ; 0.099 V                              ; 5.12e-10 s                  ; 2.97e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 2.61e-05 V                  ; 3.09 V             ; -0.0638 V          ; 0.034 V                             ; 0.099 V                             ; 5.12e-10 s                 ; 2.97e-10 s                 ; Yes                       ; Yes                       ;
+; tx_n         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
 ; coils[0]     ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.32e-05 V                   ; 3.09 V              ; -0.11 V             ; 0.031 V                              ; 0.155 V                              ; 5.43e-10 s                  ; 3.14e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.32e-05 V                  ; 3.09 V             ; -0.11 V            ; 0.031 V                             ; 0.155 V                             ; 5.43e-10 s                 ; 3.14e-10 s                 ; Yes                       ; Yes                       ;
 ; coils[1]     ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.32e-05 V                   ; 3.09 V              ; -0.11 V             ; 0.031 V                              ; 0.155 V                              ; 5.43e-10 s                  ; 3.14e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.32e-05 V                  ; 3.09 V             ; -0.11 V            ; 0.031 V                             ; 0.155 V                             ; 5.43e-10 s                 ; 3.14e-10 s                 ; Yes                       ; Yes                       ;
 ; coils[2]     ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.61e-05 V                   ; 3.09 V              ; -0.0638 V           ; 0.034 V                              ; 0.099 V                              ; 5.12e-10 s                  ; 2.97e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 2.61e-05 V                  ; 3.09 V             ; -0.0638 V          ; 0.034 V                             ; 0.099 V                             ; 5.12e-10 s                 ; 2.97e-10 s                 ; Yes                       ; Yes                       ;
@@ -669,6 +674,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; blue[5]      ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.94e-06 V                   ; 3.69 V              ; -0.414 V            ; 0.134 V                              ; 0.585 V                              ; 4.19e-10 s                  ; 1.53e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.94e-06 V                  ; 3.69 V             ; -0.414 V           ; 0.134 V                             ; 0.585 V                             ; 4.19e-10 s                 ; 1.53e-10 s                 ; Yes                       ; No                        ;
 ; blue[6]      ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.63e-06 V                   ; 3.64 V              ; -0.326 V            ; 0.091 V                              ; 0.479 V                              ; 3.83e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 3.63e-06 V                  ; 3.64 V             ; -0.326 V           ; 0.091 V                             ; 0.479 V                             ; 3.83e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
 ; blue[7]      ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.63e-06 V                   ; 3.64 V              ; -0.326 V            ; 0.091 V                              ; 0.479 V                              ; 3.83e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 3.63e-06 V                  ; 3.64 V             ; -0.326 V           ; 0.091 V                             ; 0.479 V                             ; 3.83e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; tx_n         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
 ; coils[0]     ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.94e-06 V                   ; 3.69 V              ; -0.414 V            ; 0.134 V                              ; 0.585 V                              ; 4.19e-10 s                  ; 1.53e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.94e-06 V                  ; 3.69 V             ; -0.414 V           ; 0.134 V                             ; 0.585 V                             ; 4.19e-10 s                 ; 1.53e-10 s                 ; Yes                       ; No                        ;
 ; coils[1]     ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.94e-06 V                   ; 3.69 V              ; -0.414 V            ; 0.134 V                              ; 0.585 V                              ; 4.19e-10 s                  ; 1.53e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.94e-06 V                  ; 3.69 V             ; -0.414 V           ; 0.134 V                             ; 0.585 V                             ; 4.19e-10 s                 ; 1.53e-10 s                 ; Yes                       ; No                        ;
 ; coils[2]     ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.63e-06 V                   ; 3.64 V              ; -0.326 V            ; 0.091 V                              ; 0.479 V                              ; 3.83e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 3.63e-06 V                  ; 3.64 V             ; -0.326 V           ; 0.091 V                             ; 0.479 V                             ; 3.83e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
@@ -737,6 +743,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; blue[5]      ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000238 V                   ; 3.64 V              ; -0.254 V            ; 0.052 V                              ; 0.543 V                              ; 4.59e-10 s                  ; 1.96e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000238 V                  ; 3.64 V             ; -0.254 V           ; 0.052 V                             ; 0.543 V                             ; 4.59e-10 s                 ; 1.96e-10 s                 ; Yes                       ; No                        ;
 ; blue[6]      ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000184 V                   ; 3.64 V              ; -0.19 V             ; 0.019 V                              ; 0.425 V                              ; 4.44e-10 s                  ; 1.91e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000184 V                  ; 3.64 V             ; -0.19 V            ; 0.019 V                             ; 0.425 V                             ; 4.44e-10 s                 ; 1.91e-10 s                 ; Yes                       ; No                        ;
 ; blue[7]      ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000184 V                   ; 3.64 V              ; -0.19 V             ; 0.019 V                              ; 0.425 V                              ; 4.44e-10 s                  ; 1.91e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000184 V                  ; 3.64 V             ; -0.19 V            ; 0.019 V                             ; 0.425 V                             ; 4.44e-10 s                 ; 1.91e-10 s                 ; Yes                       ; No                        ;
+; tx_n         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
 ; coils[0]     ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000238 V                   ; 3.64 V              ; -0.254 V            ; 0.052 V                              ; 0.543 V                              ; 4.59e-10 s                  ; 1.96e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000238 V                  ; 3.64 V             ; -0.254 V           ; 0.052 V                             ; 0.543 V                             ; 4.59e-10 s                 ; 1.96e-10 s                 ; Yes                       ; No                        ;
 ; coils[1]     ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000238 V                   ; 3.64 V              ; -0.254 V            ; 0.052 V                              ; 0.543 V                              ; 4.59e-10 s                  ; 1.96e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000238 V                  ; 3.64 V             ; -0.254 V           ; 0.052 V                             ; 0.543 V                             ; 4.59e-10 s                 ; 1.96e-10 s                 ; Yes                       ; No                        ;
 ; coils[2]     ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000184 V                   ; 3.64 V              ; -0.19 V             ; 0.019 V                              ; 0.425 V                              ; 4.44e-10 s                  ; 1.91e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000184 V                  ; 3.64 V             ; -0.19 V            ; 0.019 V                             ; 0.425 V                             ; 4.44e-10 s                 ; 1.91e-10 s                 ; Yes                       ; No                        ;
@@ -776,12 +783,15 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+----------+----------+--------------+--------------+
 ; From Clock                                                                        ; To Clock                                                                          ; RR Paths ; FR Paths ; RF Paths     ; FF Paths     ;
 +-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+----------+----------+--------------+--------------+
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 9300     ; 0        ; 0            ; 0            ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 11408    ; 0        ; 0            ; 0            ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; hcsr04:hcsr04|output_hunds[0]                                                     ; 0        ; 0        ; > 2147483647 ; 0            ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 7902     ; 0        ; 0            ; 0            ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 6659     ; 0        ; 0            ; 0            ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 21533    ; 0        ; 0            ; 0            ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 8        ; 8        ; 0            ; 0            ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; hcsr04:hcsr04|output_hunds[0]                                                     ; 0        ; 0        ; 959808       ; 0            ;
 ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; hcsr04:hcsr04|output_hunds[0]                                                     ; 0        ; 0        ; > 2147483647 ; 0            ;
 ; hcsr04:hcsr04|output_hunds[0]                                                     ; hcsr04:hcsr04|output_hunds[0]                                                     ; 0        ; 0        ; > 2147483647 ; > 2147483647 ;
-; ov7670_pclk                                                                       ; ov7670_pclk                                                                       ; 7727     ; 62       ; 0            ; 0            ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; ov7670_pclk                                                                       ; 8080     ; 0        ; 0            ; 0            ;
+; ov7670_pclk                                                                       ; ov7670_pclk                                                                       ; 11899    ; 65       ; 0            ; 0            ;
 +-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+----------+----------+--------------+--------------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -791,12 +801,15 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+----------+----------+--------------+--------------+
 ; From Clock                                                                        ; To Clock                                                                          ; RR Paths ; FR Paths ; RF Paths     ; FF Paths     ;
 +-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+----------+----------+--------------+--------------+
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 9300     ; 0        ; 0            ; 0            ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 11408    ; 0        ; 0            ; 0            ;
-; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; hcsr04:hcsr04|output_hunds[0]                                                     ; 0        ; 0        ; > 2147483647 ; 0            ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 7902     ; 0        ; 0            ; 0            ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 6659     ; 0        ; 0            ; 0            ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 21533    ; 0        ; 0            ; 0            ;
+; hcsr04:hcsr04|output_hunds[0]                                                     ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; 8        ; 8        ; 0            ; 0            ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; hcsr04:hcsr04|output_hunds[0]                                                     ; 0        ; 0        ; 959808       ; 0            ;
 ; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; hcsr04:hcsr04|output_hunds[0]                                                     ; 0        ; 0        ; > 2147483647 ; 0            ;
 ; hcsr04:hcsr04|output_hunds[0]                                                     ; hcsr04:hcsr04|output_hunds[0]                                                     ; 0        ; 0        ; > 2147483647 ; > 2147483647 ;
-; ov7670_pclk                                                                       ; ov7670_pclk                                                                       ; 7727     ; 62       ; 0            ; 0            ;
+; clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk ; ov7670_pclk                                                                       ; 8080     ; 0        ; 0            ; 0            ;
+; ov7670_pclk                                                                       ; ov7670_pclk                                                                       ; 11899    ; 65       ; 0            ; 0            ;
 +-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+----------+----------+--------------+--------------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -820,10 +833,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 11    ; 11   ;
-; Unconstrained Input Port Paths  ; 11    ; 11   ;
-; Unconstrained Output Ports      ; 57    ; 57   ;
-; Unconstrained Output Port Paths ; 133   ; 133  ;
+; Unconstrained Input Ports       ; 13    ; 13   ;
+; Unconstrained Input Port Paths  ; 311   ; 311  ;
+; Unconstrained Output Ports      ; 58    ; 58   ;
+; Unconstrained Output Port Paths ; 134   ; 134  ;
 +---------------------------------+-------+------+
 
 
@@ -856,6 +869,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; ov7670_data[7] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; ov7670_href    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; ov7670_vsync   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rst            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rx_n           ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; sonar_echo     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +----------------+--------------------------------------------------------------------------------------+
 
@@ -920,6 +935,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; red[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; red[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; sonar_trig   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; tx_n         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; v_sync       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vga_clock    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +--------------+---------------------------------------------------------------------------------------+
@@ -940,6 +956,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; ov7670_data[7] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; ov7670_href    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; ov7670_vsync   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rst            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rx_n           ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; sonar_echo     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +----------------+--------------------------------------------------------------------------------------+
 
@@ -1004,6 +1022,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; red[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; red[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; sonar_trig   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; tx_n         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; v_sync       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vga_clock    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +--------------+---------------------------------------------------------------------------------------+
@@ -1015,7 +1034,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri May 26 00:59:57 2023
+    Info: Processing started: Mon May 29 22:57:15 2023
 Info: Command: quartus_sta Proje -c Proje
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1046,32 +1065,32 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -69.857
+Info (332146): Worst-case setup slack is -78.574
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -69.857           -1600.281 hcsr04:hcsr04|output_hunds[0] 
-    Info (332119):    -3.493          -12689.877 ov7670_pclk 
-    Info (332119):    14.389               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    29.378               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.245
+    Info (332119):   -78.574           -1726.832 hcsr04:hcsr04|output_hunds[0] 
+    Info (332119):    -8.756             -61.913 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    -5.995          -22004.725 ov7670_pclk 
+    Info (332119):     9.431               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.318
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.245               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.320               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.382               0.000 ov7670_pclk 
-    Info (332119):     1.467               0.000 hcsr04:hcsr04|output_hunds[0] 
+    Info (332119):     0.318               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.366               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.374               0.000 ov7670_pclk 
+    Info (332119):     1.704               0.000 hcsr04:hcsr04|output_hunds[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -2.995
+Info (332146): Worst-case minimum pulse width slack is -2.713
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.995            -325.226 hcsr04:hcsr04|output_hunds[0] 
-    Info (332119):    -2.174          -18415.015 ov7670_pclk 
+    Info (332119):    -2.713            -294.372 hcsr04:hcsr04|output_hunds[0] 
+    Info (332119):    -2.174          -18405.726 ov7670_pclk 
     Info (332119):     1.250               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):     8.780               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
     Info (332119):     9.670               0.000 clk 
-    Info (332119):    18.770               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-Info (332114): Report Metastability: Found 9 synchronizer chains.
+    Info (332119):    18.768               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332114): Report Metastability: Found 17 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
@@ -1085,32 +1104,32 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -72.465
+Info (332146): Worst-case setup slack is -80.967
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -72.465           -1647.320 hcsr04:hcsr04|output_hunds[0] 
-    Info (332119):    -3.355          -11756.508 ov7670_pclk 
-    Info (332119):    14.397               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    29.866               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.229
+    Info (332119):   -80.967           -1770.579 hcsr04:hcsr04|output_hunds[0] 
+    Info (332119):    -8.330             -58.358 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    -5.902          -21193.004 ov7670_pclk 
+    Info (332119):     9.905               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.298
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.229               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.304               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.353               0.000 ov7670_pclk 
-    Info (332119):     1.284               0.000 hcsr04:hcsr04|output_hunds[0] 
+    Info (332119):     0.298               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.362               0.000 ov7670_pclk 
+    Info (332119):     0.369               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     1.682               0.000 hcsr04:hcsr04|output_hunds[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -3.053
+Info (332146): Worst-case minimum pulse width slack is -2.755
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.053            -334.026 hcsr04:hcsr04|output_hunds[0] 
-    Info (332119):    -2.174          -18377.778 ov7670_pclk 
+    Info (332119):    -2.755            -302.666 hcsr04:hcsr04|output_hunds[0] 
+    Info (332119):    -2.174          -18392.509 ov7670_pclk 
     Info (332119):     1.250               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
-    Info (332119):     8.766               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     8.767               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
     Info (332119):     9.673               0.000 clk 
-    Info (332119):    18.751               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-Info (332114): Report Metastability: Found 9 synchronizer chains.
+    Info (332119):    18.750               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332114): Report Metastability: Found 17 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
@@ -1124,32 +1143,32 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -36.128
+Info (332146): Worst-case setup slack is -41.112
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -36.128            -834.307 hcsr04:hcsr04|output_hunds[0] 
-    Info (332119):    -2.151           -6264.823 ov7670_pclk 
-    Info (332119):    16.662               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    32.297               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.138
+    Info (332119):   -41.112            -914.823 hcsr04:hcsr04|output_hunds[0] 
+    Info (332119):    -6.551             -45.769 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    -3.402          -11599.816 ov7670_pclk 
+    Info (332119):    12.829               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.178
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.138               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.181               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.183               0.000 ov7670_pclk 
-    Info (332119):     1.024               0.000 hcsr04:hcsr04|output_hunds[0] 
+    Info (332119):     0.178               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.197               0.000 ov7670_pclk 
+    Info (332119):     0.198               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     1.200               0.000 hcsr04:hcsr04|output_hunds[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.174          -20109.767 ov7670_pclk 
-    Info (332119):    -1.526            -135.375 hcsr04:hcsr04|output_hunds[0] 
+    Info (332119):    -2.174          -20201.062 ov7670_pclk 
+    Info (332119):    -1.321            -109.681 hcsr04:hcsr04|output_hunds[0] 
     Info (332119):     1.250               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
-    Info (332119):     8.893               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     8.894               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
     Info (332119):     9.336               0.000 clk 
     Info (332119):    18.885               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-Info (332114): Report Metastability: Found 9 synchronizer chains.
+Info (332114): Report Metastability: Found 17 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Fast 1100mV 0C Model
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
@@ -1161,39 +1180,39 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -34.564
+Info (332146): Worst-case setup slack is -39.056
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -34.564            -795.730 hcsr04:hcsr04|output_hunds[0] 
-    Info (332119):    -1.746           -4862.123 ov7670_pclk 
-    Info (332119):    16.871               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    33.321               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.126
+    Info (332119):   -39.056            -862.936 hcsr04:hcsr04|output_hunds[0] 
+    Info (332119):    -5.423             -37.610 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    -3.031           -9989.183 ov7670_pclk 
+    Info (332119):    13.746               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.169
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.126               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.171               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.175               0.000 ov7670_pclk 
-    Info (332119):     0.909               0.000 hcsr04:hcsr04|output_hunds[0] 
+    Info (332119):     0.169               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.186               0.000 ov7670_pclk 
+    Info (332119):     0.189               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     1.195               0.000 hcsr04:hcsr04|output_hunds[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.174          -20453.251 ov7670_pclk 
-    Info (332119):    -1.371            -125.094 hcsr04:hcsr04|output_hunds[0] 
+    Info (332119):    -2.174          -20526.566 ov7670_pclk 
+    Info (332119):    -1.176            -100.851 hcsr04:hcsr04|output_hunds[0] 
     Info (332119):     1.250               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
-    Info (332119):     8.888               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     8.889               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
     Info (332119):     9.286               0.000 clk 
-    Info (332119):    18.885               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-Info (332114): Report Metastability: Found 9 synchronizer chains.
+    Info (332119):    18.883               0.000 clock_pll_1|clock_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332114): Report Metastability: Found 17 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 5280 megabytes
-    Info: Processing ended: Fri May 26 01:00:11 2023
+    Info: Peak virtual memory: 5290 megabytes
+    Info: Processing ended: Mon May 29 22:57:29 2023
     Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Total CPU time (on all processors): 00:00:09
 
 

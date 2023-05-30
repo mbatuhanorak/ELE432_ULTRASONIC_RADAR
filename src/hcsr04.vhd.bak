@@ -15,7 +15,7 @@ entity hcsr04 is
             o_seg_cms    : out std_logic_vector(6 downto 0);
 			o_seg_ms    : out std_logic_vector(6 downto 0);
             o_seg_dms    : out std_logic_vector(6 downto 0);
-			distance_out_t : out integer
+			distance_out : out integer range 0 to 255 
             );
 end entity  hcsr04;
 
@@ -52,7 +52,7 @@ type fsm is (clear_state, idle_state, hcsr_state, end_state, error_state); -- 4 
 signal state : fsm; -- Register to save the current state
 
 begin
-distance_out_t<=to_integer(centimeters_ones) + 10*to_integer(centimeters_tens) + 100*to_integer(centimeters_hund) ;
+distance_out<=to_integer(output_ones) + 10*to_integer(output_tens) + 100*to_integer(output_hunds) ;
     --------------- State process --------------
     process(clk_50, reset_n)
     begin

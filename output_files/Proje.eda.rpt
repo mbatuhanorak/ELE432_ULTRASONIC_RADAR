@@ -1,5 +1,5 @@
 EDA Netlist Writer report for Proje
-Fri May 26 01:00:14 2023
+Mon May 29 22:57:32 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri May 26 01:00:14 2023 ;
+; EDA Netlist Writer Status ; Successful - Mon May 29 22:57:32 2023 ;
 ; Revision Name             ; Proje                                 ;
 ; Top-level Entity Name     ; project                               ;
 ; Family                    ; Cyclone V                             ;
@@ -66,13 +66,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------------------------+-----------------+
 
 
-+-------------------------------------------------------------------+
-; Simulation Generated Files                                        ;
-+-------------------------------------------------------------------+
-; Generated Files                                                   ;
-+-------------------------------------------------------------------+
-; C:/Users/mbatu/Desktop/ELE432_RADAR/simulation/modelsim/Proje.vho ;
-+-------------------------------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                          ;
++-------------------------------------------------------------------------------------+
+; Generated Files                                                                     ;
++-------------------------------------------------------------------------------------+
+; C:/Users/mbatu/Downloads/ELE432_ULTRASONIC_RADAR-main/simulation/modelsim/Proje.vho ;
++-------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -81,14 +81,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri May 26 01:00:12 2023
+    Info: Processing started: Mon May 29 22:57:30 2023
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off Proje -c Proje
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file Proje.vho in folder "C:/Users/mbatu/Desktop/ELE432_RADAR/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file Proje.vho in folder "C:/Users/mbatu/Downloads/ELE432_ULTRASONIC_RADAR-main/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4863 megabytes
-    Info: Processing ended: Fri May 26 01:00:15 2023
-    Info: Elapsed time: 00:00:03
+    Info: Peak virtual memory: 4870 megabytes
+    Info: Processing ended: Mon May 29 22:57:32 2023
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 

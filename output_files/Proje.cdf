@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSEMA5F31) Path("C:/Users/mbatu/Desktop/ELE432_RADAR/output_files/") File("Proje.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSEMA5F31) Path("C:/Users/mbatu/Downloads/ELE432_ULTRASONIC_RADAR-main/output_files/") File("Proje.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
