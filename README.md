@@ -8,6 +8,9 @@ AN ULTRASONIC SENSOR AND A STEP MOTOR CAN BE EMPLOYED TO DETECT THE PRESENCE OF 
 ----------------------------------------------------------------------------------------<br />
 FPGA Part: DE1-SoC
 
+![resim](https://github.com/mbatuhanorak/ELE432_ULTRASONIC_RADAR/assets/63021742/bf403399-07c5-4d90-a715-42432058ae75)
+
+
 The DE1-SoC board will be used as the FPGA platform for implementing the Ultrasonic Radar project. The DE1-SoC is a versatile development board that combines the capabilities of a Cyclone V FPGA, an ARM Cortex-A9 processor, and various peripherals, making it suitable for a wide range of applications.
 
 Components:
