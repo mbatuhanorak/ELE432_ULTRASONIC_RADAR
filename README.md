@@ -42,4 +42,5 @@ By utilizing the DE1-SoC FPGA board, the ultrasonic radar system can effectively
 ----------------------------------------------------------------------------------------<br />
 PROBLEM PART<br />
 Sometimes the camera does not work efficiently due to the gpio connector problem.Cable is so important for the solution.<br />
+There is timing problem.
 ----------------------------------------------------------------------------------------<br />
